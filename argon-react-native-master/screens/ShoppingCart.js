@@ -4,8 +4,8 @@ import { Button, sSelect, Icon, Input, Header, Switch } from "../components/";
 import { Block, Text, theme } from "galio-framework";
 import { argonTheme, tabs } from "../constants/";
 
-import { Card } from '../components';
-import articles from '../constants/articles';
+import { CartItem } from '../components';
+import productsInCart from '../constants/productsInCart';
 const { width } = Dimensions.get('screen');
 
 class ShoppingCart extends React.Component {
@@ -30,18 +30,22 @@ class ShoppingCart extends React.Component {
                         </Button>
 
                         <Text>{"\n"}</Text>
-                        
+
                         <Button center color="warning" style={styles.optionsButton}>
                             I'M DONE 
                         </Button>
                     </Block>
-                    <Card item={articles[0]} horizontal />
-                    <Block flex row>
-                        <Card item={articles[1]} style={{ marginRight: theme.SIZES.BASE }} />
-                        <Card item={articles[2]} />
+                    <CartItem item={productsInCart[0]} horizontal />
+                    <CartItem item={productsInCart[1]} horizontal />
+                    <CartItem item={productsInCart[2]} horizontal />
+                    <CartItem item={productsInCart[3]} horizontal />
+
+                    {/* <Block flex row>
+                        <Card item={productsInCart[1]} style={{ marginRight: theme.SIZES.BASE }} />
+                        <Card item={productsInCart[2]} />
                     </Block>
-                    <Card item={articles[3]} horizontal />
-                    <Card item={articles[4]} full />
+                    <Card item={productsInCart[3]} horizontal />
+                    <Card item={productsInCart[4]} full /> */}
 
                     <Text size={24} bold >
                         TOTAL POINTS:
