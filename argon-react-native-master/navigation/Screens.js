@@ -16,6 +16,7 @@ import Profile from "../screens/Profile";
 import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
+import ShoppingCart from "../screens/ShoppingCart";
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -80,6 +81,20 @@ const ArticlesStack = createStackNavigator({
     screen: Articles,
     navigationOptions: ({ navigation }) => ({
       header: <Header title="Articles" navigation={navigation} />
+    })
+  }
+},{
+  cardStyle: {
+    backgroundColor: "#F8F9FE"
+  },
+  transitionConfig
+});
+
+const ShoppingCartStack = createStackNavigator({
+  ShoppingCart: {
+    screen: ShoppingCart,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="ShoppingCart" navigation={navigation} />
     })
   }
 },{
@@ -178,6 +193,14 @@ const AppStack = createDrawerNavigator(
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
           <DrawerItem focused={focused} screen="Articles" title="Articles" />
+        )
+      })
+    },
+    ShoppingCart: {
+      screen: ShoppingCartStack,
+      navigationOptions: navOpt => ({
+        drawerLabel: ({ focused }) => (
+          <DrawerItem focused={focused} screen="ShoppingCart" title="ShoppingCart" />
         )
       })
     }
