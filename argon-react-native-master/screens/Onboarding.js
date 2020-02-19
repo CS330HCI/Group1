@@ -18,48 +18,62 @@ class Onboarding extends React.Component {
     const { navigation } = this.props;
 
     return (
-      <Block flex style={styles.container}>
-        <StatusBar hidden />
-        <Block flex center>
-        <ImageBackground
-            source={Images.Onboarding}
-            style={{ height, width, zIndex: 1 }}
-          />
-        </Block>
-        <Block center>
-          <Image source={Images.LogoOnboarding} style={styles.logo} />
-        </Block>
-        <Block flex space="between" style={styles.padded}>
-            <Block flex space="around" style={{ zIndex: 2 }}>
-              <Block style={styles.title}>
-                <Block>
-                  <Text color="white" size={60}>
-                    Design
-                  </Text>
-                </Block>
-                <Block>
-                  <Text color="white" size={60}>
-                    System
-                  </Text>
-                </Block>
-                <Block style={styles.subTitle}>
-                  <Text color="white" size={16}>
-                    Fully coded React Native components.
-                  </Text>
-                </Block>
-              </Block>
-              <Block center>
-                <Button
-                  style={styles.button}
-                  color={argonTheme.COLORS.SECONDARY}
-                  onPress={() => navigation.navigate("Home")}
-                  textStyle={{ color: argonTheme.COLORS.BLACK }}
-                >
-                  Get Started
-                </Button>
-              </Block>
-          </Block>
-        </Block>
+      // <Block flex style={styles.container}>
+      //   <StatusBar hidden />
+      //   <Block flex center>
+      //   <ImageBackground
+      //       source={Images.Onboarding}
+      //       style={{ height, width, zIndex: 1 }}
+      //     />
+      //   </Block>
+      //   <Block center>
+      //     <Image source={Images.LogoOnboarding} style={styles.logo} />
+      //   </Block>
+      //   <Block flex space="between" style={styles.padded}>
+      //       <Block flex space="around" style={{ zIndex: 2 }}>
+      //         <Block style={styles.title}>
+      //           <Block>
+      //             <Text color="white" size={60}>
+      //               Design
+      //             </Text>
+      //           </Block>
+      //           <Block>
+      //             <Text color="white" size={60}>
+      //               System
+      //             </Text>
+      //           </Block>
+      //           <Block style={styles.subTitle}>
+      //             <Text color="white" size={16}>
+      //               Fully coded React Native components.
+      //             </Text>
+      //           </Block>
+      //         </Block>
+      //         <Block center>
+      //           <Button
+      //             style={styles.button}
+      //             color={argonTheme.COLORS.SECONDARY}
+      //             onPress={() => navigation.navigate("Search")}
+      //             textStyle={{ color: argonTheme.COLORS.BLACK }}
+      //           >
+      //             Get Started
+      //           </Button>
+      //         </Block>
+      //     </Block>
+      //   </Block>
+      // </Block>
+      <Block center style={styles.container}>
+            <Block center>
+              <Button style={styles.button}>SEARCH</Button>
+            </Block>
+            <Block center>
+              <Button style={styles.button}>MY POINTS</Button>
+            </Block>
+            <Block center>
+              <Button style={styles.button}>MY SHOPPING LIST</Button>
+            </Block>
+            <Block center>
+              <Button style={styles.button}>MY DAILY TRIVIA</Button>
+            </Block>
       </Block>
     );
   }

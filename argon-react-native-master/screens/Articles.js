@@ -155,7 +155,7 @@ class Articles extends React.Component {
             <Text
               size={12}
               color={theme.COLORS.PRIMARY}
-              onPress={() => navigation.navigate("Home")}
+              onPress={() => navigation.navigate("Search")}
             >
               View All
             </Text>

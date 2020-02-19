@@ -62,11 +62,6 @@ class Header extends React.Component {
     }
 
     switch (routeName) {
-      case 'Home':
-        return ([
-          <BellButton key='chat-home' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-home' navigation={navigation} isWhite={white} />
-        ]);
       case 'Deals':
         return ([
           <BellButton key='chat-categories' navigation={navigation} />,
@@ -108,38 +103,42 @@ class Header extends React.Component {
   }
   renderSearch = () => {
     const { navigation } = this.props;
+    state = {
+      input: '',
+    };
+
     return (
       <Input
         right
         color="black"
         style={styles.search}
-        placeholder="What are you looking for?"
+        placeholder="What food are you looking for?"
         placeholderTextColor={'#8898AA'}
-        onFocus={() => navigation.navigate('Pro')}
         iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="search-zoom-in" family="ArgonExtra" />}
+        onChangeText={(text) => this.setState({input: text})}
       />
     );
   }
-  renderOptions = () => {
-    const { navigation, optionLeft, optionRight } = this.props;
+  // renderOptions = () => {
+  //   const { navigation, optionLeft, optionRight } = this.props;
 
-    return (
-      <Block row style={styles.options}>
-        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Pro')}>
-          <Block row middle>
-            <Icon name="diamond" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON} />
-            <Text size={16} style={styles.tabTitle}>{optionLeft || 'Beauty'}</Text>
-          </Block>
-        </Button>
-        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Pro')}>
-          <Block row middle>
-            <Icon size={16} name="bag-17" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON}/>
-            <Text size={16} style={styles.tabTitle}>{optionRight || 'Fashion'}</Text>
-          </Block>
-        </Button>
-      </Block>
-    );
-  }
+  //   return (
+  //     <Block row style={styles.options}>
+  //       <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Pro')}>
+  //         <Block row middle>
+  //           <Icon name="diamond" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON} />
+  //           <Text size={16} style={styles.tabTitle}>{optionLeft || 'Beauty'}</Text>
+  //         </Block>
+  //       </Button>
+  //       <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Pro')}>
+  //         <Block row middle>
+  //           <Icon size={16} name="bag-17" family="ArgonExtra" style={{ paddingRight: 8 }} color={argonTheme.COLORS.ICON}/>
+  //           <Text size={16} style={styles.tabTitle}>{optionRight || 'Fashion'}</Text>
+  //         </Block>
+  //       </Button>
+  //     </Block>
+  //   );
+  // }
   renderTabs = () => {
     const { tabs, tabIndex, navigation } = this.props;
     const defaultTab = tabs && tabs[0] && tabs[0].id;
@@ -159,7 +158,7 @@ class Header extends React.Component {
       return (
         <Block center>
           {search ? this.renderSearch() : null}
-          {options ? this.renderOptions() : null}
+          {/* {options ? this.renderOptions() : null} */}
           {tabs ? this.renderTabs() : null}
         </Block>
       );
