@@ -94,7 +94,7 @@ const ShoppingCartStack = createStackNavigator({
   ShoppingCart: {
     screen: ShoppingCart,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="ShoppingCart" navigation={navigation} />
+      header: <Header title="Shopping Cart" navigation={navigation} />
     })
   }
 },{
@@ -200,7 +200,7 @@ const AppStack = createDrawerNavigator(
       screen: ShoppingCartStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="ShoppingCart" title="ShoppingCart" />
+          <DrawerItem focused={focused} screen="ShoppingCart" title="Shopping Cart" />
         )
       })
     }
