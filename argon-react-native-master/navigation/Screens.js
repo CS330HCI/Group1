@@ -17,6 +17,7 @@ import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
 import ShoppingCart from "../screens/ShoppingCart";
+import Itempage from "../screens/Itempage";
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -74,6 +75,16 @@ const ElementsStack = createStackNavigator({
     backgroundColor: "#F8F9FE"
   },
   transitionConfig
+});
+
+const ItempageStack = createStackNavigator({
+  Itempage:{
+    screen:Itempage,
+    navigationOptions:({navigation}) => ({
+      header:<Header title="Item Page" navigation={navigation} />
+    })
+  }
+
 });
 
 const ArticlesStack = createStackNavigator({
@@ -186,6 +197,14 @@ const AppStack = createDrawerNavigator(
         drawerLabel: ({ focused }) => (
           <DrawerItem focused={focused} screen="Elements" title="Elements" />
         )
+      })
+    },
+    Itempage:{
+      screen:ItempageStack,
+      navigationOptions: navOpt => ({
+         drawerLabel:({focused}) => (
+            <DrawerItem focused={focused} screen="Itempage" title="Itempage" />
+          ) 
       })
     },
     Articles: {
