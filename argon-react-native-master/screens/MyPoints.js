@@ -54,7 +54,7 @@ class MyPoints extends React.Component {
                       Your Points
                     </Text>
                     <Text bold size={28} color="#32325D" style={{ marginTop: 10 }}>
-                      0
+                      11
                     </Text>
                   </Block>
                   <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
