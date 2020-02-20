@@ -9,14 +9,16 @@ import {
 import { Block } from "galio-framework";
 
 // screens
+import Search from "../screens/Search";
 import Home from "../screens/Home";
-import Onboarding from "../screens/Onboarding";
 import Pro from "../screens/Pro";
 import Profile from "../screens/Profile";
 import Register from "../screens/Register";
 import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
+
 import ShoppingCart from "../screens/ShoppingCart";
+
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -122,12 +124,12 @@ const ProfileStack = createStackNavigator(
   }
 );
 
-const HomeStack = createStackNavigator(
+const SearchStack = createStackNavigator(
   {
-    Home: {
-      screen: Home,
+    Search: {
+      screen: Search,
       navigationOptions: ({ navigation }) => ({
-        header: <Header search options title="Home" navigation={navigation} />
+        header: <Header search options title="Search" navigation={navigation} />
       })
     },
     Pro: {
@@ -150,17 +152,17 @@ const HomeStack = createStackNavigator(
 // divideru se baga ca si cum ar fi un ecrna dar nu-i nimic duh
 const AppStack = createDrawerNavigator(
   {
-    Onboarding: {
-      screen: Onboarding,
+    Home: {
+      screen: Home,
       navigationOptions: {
         drawerLabel: () => {}
       }
     },
-    Home: {
-      screen: HomeStack,
+    Search: {
+      screen: SearchStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} title="Home" />
+          <DrawerItem focused={focused} screen="Search" title="Home" />
         )
       })
     },
