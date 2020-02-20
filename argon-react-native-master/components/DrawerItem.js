@@ -55,6 +55,15 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : argonTheme.COLORS.INFO}
           />
         );
+      case "Shopping Cart":
+        return (
+          <Icon
+            name="basket"
+            family="ArgonExtra"
+            size={12}
+            color={focused ? "white" : argonTheme.COLORS.WARNING}
+          />
+        );
       case "Getting Started":
         return <Icon />;
       case "Log out":
