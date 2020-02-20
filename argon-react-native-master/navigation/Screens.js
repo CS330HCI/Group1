@@ -10,7 +10,7 @@ import { Block } from "galio-framework";
 
 // screens
 import Search from "../screens/Search";
-import Onboarding from "../screens/Onboarding";
+import Home from "../screens/Home";
 import Pro from "../screens/Pro";
 import Profile from "../screens/Profile";
 import Register from "../screens/Register";
@@ -165,8 +165,8 @@ const SearchStack = createStackNavigator(
 // divideru se baga ca si cum ar fi un ecrna dar nu-i nimic duh
 const AppStack = createDrawerNavigator(
   {
-    Onboarding: {
-      screen: Onboarding,
+    Home: {
+      screen: Home,
       navigationOptions: {
         drawerLabel: () => {}
       }
@@ -175,7 +175,7 @@ const AppStack = createDrawerNavigator(
       screen: SearchStack,
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
-          <DrawerItem focused={focused} screen="Search" title="Search" />
+          <DrawerItem focused={focused} screen="Search" title="Home" />
         )
       })
     },

@@ -11,8 +11,9 @@ class Card extends React.Component {
   render() {
     const { navigation, item, horizontal, full, style, ctaColor, imageStyle } = this.props;
     const imageStyles = [
-      full ? styles.fullImage : styles.horizontalImage,
-      imageStyle
+      {flex: 1,
+      width: undefined, 
+      height: undefined,}
     ];
     const cardContainer = [styles.card, styles.shadow, style];
     const imgContainer = [styles.imageContainer,
@@ -33,10 +34,11 @@ class Card extends React.Component {
           <Block flex space="between" style={styles.cardDescription}>
             <Text size={14} style={styles.cardTitle}>{item.name}</Text>
             <Text size={12} style={styles.cardDescription}> Carbon Footprint: {item.footprint}</Text>
+            <Text size={12} style={styles.cardDescription}> Points: {item.points}</Text>
             <Button round size="small" style={{ width: 40, height: 40, alignSelf: 'flex-end'}}
                     onPress={() => navigation.navigate('Pro')}> 
                     {/* Change pro to cart page */}
-              {item.points}
+              +
             </Button>
           </Block>
         </TouchableWithoutFeedback>
