@@ -19,10 +19,14 @@ import Articles from "../screens/Articles";
 
 import ShoppingCart from "../screens/ShoppingCart";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Itempage from "../screens/Itempage";
 =======
 
 >>>>>>> f4fb1dafa5bc9c75df79b6d2d0362f5b0c09a7c0
+=======
+import MyPoints from "../screens/MyPoints";
+>>>>>>> 126e4288bd92f9dea632756f46a60a01f5ca7442
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -111,6 +115,20 @@ const ShoppingCartStack = createStackNavigator({
     screen: ShoppingCart,
     navigationOptions: ({ navigation }) => ({
       header: <Header title="Shopping Cart" navigation={navigation} />
+    })
+  }
+},{
+  cardStyle: {
+    backgroundColor: "#F8F9FE"
+  },
+  transitionConfig
+});
+
+const MyPointsStack = createStackNavigator({
+  ShoppingCart: {
+    screen: MyPoints,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="My Points" navigation={navigation} />
     })
   }
 },{
@@ -225,6 +243,15 @@ const AppStack = createDrawerNavigator(
       navigationOptions: navOpt => ({
         drawerLabel: ({ focused }) => (
           <DrawerItem focused={focused} screen="ShoppingCart" title="Shopping Cart" />
+        )
+      })
+    },
+
+    MyPoints: {
+      screen: MyPointsStack,
+      navigationOptions: navOpt => ({
+        drawerLabel: ({ focused }) => (
+          <DrawerItem focused={focused} screen="My Points" title="My Points" />
         )
       })
     }
