@@ -18,7 +18,15 @@ import Elements from "../screens/Elements";
 import Articles from "../screens/Articles";
 
 import ShoppingCart from "../screens/ShoppingCart";
+<<<<<<< HEAD
+<<<<<<< HEAD
+import Itempage from "../screens/Itempage";
+=======
+
+>>>>>>> f4fb1dafa5bc9c75df79b6d2d0362f5b0c09a7c0
+=======
 import MyPoints from "../screens/MyPoints";
+>>>>>>> 126e4288bd92f9dea632756f46a60a01f5ca7442
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -76,6 +84,16 @@ const ElementsStack = createStackNavigator({
     backgroundColor: "#F8F9FE"
   },
   transitionConfig
+});
+
+const ItempageStack = createStackNavigator({
+  Itempage:{
+    screen:Itempage,
+    navigationOptions:({navigation}) => ({
+      header:<Header title="Item Page" navigation={navigation} />
+    })
+  }
+
 });
 
 const ArticlesStack = createStackNavigator({
@@ -202,6 +220,14 @@ const AppStack = createDrawerNavigator(
         drawerLabel: ({ focused }) => (
           <DrawerItem focused={focused} screen="Elements" title="Elements" />
         )
+      })
+    },
+    Itempage:{
+      screen:ItempageStack,
+      navigationOptions: navOpt => ({
+         drawerLabel:({focused}) => (
+            <DrawerItem focused={focused} screen="Itempage" title="Itempage" />
+          ) 
       })
     },
     Articles: {
