@@ -220,7 +220,6 @@ const AppStack = createDrawerNavigator(
         )
       })
     },
-
     MyPoints: {
       screen: MyPointsStack,
       navigationOptions: navOpt => ({
