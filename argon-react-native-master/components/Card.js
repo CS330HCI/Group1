@@ -1,19 +1,25 @@
 import React from 'react';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
-import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback } from 'react-native';
-import { Block, Text, theme } from 'galio-framework';
-
+import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback, BackHandler } from 'react-native';
+import { Block, Text, theme, Button } from 'galio-framework';
 import { argonTheme } from '../constants';
 
 
+
 class Card extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      child_cart: {}
+    }
+  }
   render() {
-    const { navigation, item, horizontal, full, style, ctaColor, imageStyle } = this.props;
-    
+    const { navigation, item, horizontal, full, style, ctaColor, imageStyle, handleCart } = this.props;
     const imageStyles = [
-      full ? styles.fullImage : styles.horizontalImage,
-      imageStyle
+      {flex: 1,
+      width: undefined, 
+      height: undefined,}
     ];
     const cardContainer = [styles.card, styles.shadow, style];
     const imgContainer = [styles.imageContainer,
@@ -24,14 +30,24 @@ class Card extends React.Component {
     return (
       <Block row={horizontal} card flex style={cardContainer}>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+          {/* Change pro to food information page */}
           <Block flex style={imgContainer}>
-            <Image source={{uri: item.image}} style={imageStyles} />
+            <Image source={item.image} style={imageStyles} />
           </Block>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+          {/* Change pro to food information page */}
           <Block flex space="between" style={styles.cardDescription}>
-            <Text size={14} style={styles.cardTitle}>{item.title}</Text>
-            <Text size={12} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta}</Text>
+            <Text size={14} style={styles.cardTitle}>{item.name}</Text>
+            <Text size={12} style={styles.cardDescription}> Carbon Footprint: {item.footprint}</Text>
+            <Text size={12} style={styles.cardDescription}> Points: {item.points}</Text>
+            <Button round size="small" style={{ width: 40, height: 40, alignSelf: 'flex-end'}}
+                    onPress={() => {handleCart(item);
+                    // navigation.navigate('Pro');
+                  }}> 
+                    {/* Change pro to cart page */}
+              +
+            </Button>
           </Block>
         </TouchableWithoutFeedback>
       </Block>

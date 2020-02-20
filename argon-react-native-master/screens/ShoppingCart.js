@@ -48,7 +48,7 @@ class ShoppingCart extends React.Component {
                     <Card item={productsInCart[4]} full /> */}
 
                     <Text size={24} bold >
-                        TOTAL POINTS:
+                        TOTAL POINTS: 10
                         {"\n"}
                     </Text>
 
