@@ -8,12 +8,17 @@ const { width } = Dimensions.get('screen');
 class Search extends React.Component {
   constructor(props) {
     super(props);
+    this.handleCart = this.handleCart.bind(this)
     this.state = {
       input: '',
       full_list: food_products,
       displayed_list: {},
       cart: {},
     }
+  }
+
+  handleCart(item) {
+    this.setState({cart: {...this.state.cart, item}})
   }
 
   renderFood = () => {
@@ -27,7 +32,7 @@ class Search extends React.Component {
           contentContainerStyle={styles.articles}>
           <Block flex>
             {this.state.displayed_list.map((f) => 
-            <Card item={f} horizontal />)}
+            <Card item={f} horizontal handleCart={this.handleCart.bind(this)}/>)}
           </Block>
         </ScrollView>
       )
