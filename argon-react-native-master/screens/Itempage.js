@@ -6,9 +6,22 @@ import { argonTheme, tabs } from "../constants/";
 import {Image} from 'react-native';
 import { CartItem } from '../components';
 import productsInCart from '../constants/productsInCart';
+import food_products from '../data/food_products';
 const { width } = Dimensions.get('screen');
 
+const searchTerm = 'Steak'
+
+
 class Itempage extends React.Component {
+    constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+      full_list: food_products,
+      displayed_list: {},
+      cart: {},
+    }
+    }
     renderArticles = () => {
         return (
             <ScrollView
@@ -19,6 +32,15 @@ class Itempage extends React.Component {
                         <Text>{"\n"}</Text>
                     </Block>             
                     
+            
+                    var json = full_list;
+                    var arr = [];
+                    Object.keys(json).forEach(function(key) {
+                        arr.push(json[key])});
+
+
+
+
                     <Image source={require("../data/images/01.jpg")} />
 
                     <Button small center color="warning" style={styles.optionsButton}>
