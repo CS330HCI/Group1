@@ -9,7 +9,37 @@ import productsInCart from '../constants/productsInCart';
 const { width } = Dimensions.get('screen');
 
 class ShoppingCart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleCart = this.handleCart.bind(this)
+        this.totalPoints = 0
+      }
+
+  renderFood = () => {
+    const { state } = this.props;
+    if (state === undefined) {
+      return (null)
+    }
+    if (Object.keys(state.displayed_list).length > 0) {
+      return (
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.articles}>
+          <Block flex>
+            {state.displayed_list.map((f) => 
+            <Card item={f} horizontal/>)}
+          </Block>
+        </ScrollView>
+      )
+    }
+    else {
+      return (null)
+    }
+  }
+
     renderArticles = () => {
+        const { navigation } = this.props;
+        // console.log(state)
         return (
             <ScrollView
                 showsVerticalScrollIndicator={false}
@@ -18,23 +48,19 @@ class ShoppingCart extends React.Component {
                     <Block flex={1.25} right>
                         <Button color="primary">
                             <Block row>
-                            <Icon
-                                name="search-zoom-in"
-                                family="ArgonExtra"
-                                size={14}
-                                color={"black"}
-                                style={{ marginTop: 2, marginRight: 5 }}
-                            />
-                            <Text style={styles.socialTextButtons}>Add MORE ITEMS</Text>
+                                <Button style={styles.button}
+                                        onPress={() => navigation.navigate('Search')}>
+                                    ADD MORE ITEMS
+                                </Button>
                             </Block>
                         </Button>
-
                         <Text>{"\n"}</Text>
-
-                        <Button center color="warning" style={styles.optionsButton}>
-                            I'M DONE 
-                        </Button>
                     </Block>
+
+                    <Block flex>
+                        {this.renderFood()}
+                    </Block>
+          
                     <CartItem item={productsInCart[0]} horizontal />
                     <CartItem item={productsInCart[1]} horizontal />
                     {/* <CartItem item={productsInCart[2]} horizontal />
@@ -53,6 +79,10 @@ class ShoppingCart extends React.Component {
                     </Text>
 
                     <Button center color="warning" style={styles.optionsButton}>
+                        SAVE POINTS 
+                    </Button>
+                    <Text>{"\n"}</Text>
+                    <Button center color="warning" style={styles.optionsButton}>
                         CLEAR CONTENT
                     </Button>
 
@@ -61,7 +91,6 @@ class ShoppingCart extends React.Component {
             </ScrollView>
         )
     }
-
     render() {
         return (
             <Block flex center style={styles.home}>
