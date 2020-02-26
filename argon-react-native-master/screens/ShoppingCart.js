@@ -37,8 +37,8 @@ class ShoppingCart extends React.Component {
                     </Block>
                     <CartItem item={productsInCart[0]} horizontal />
                     <CartItem item={productsInCart[1]} horizontal />
-                    <CartItem item={productsInCart[2]} horizontal />
-                    <CartItem item={productsInCart[3]} horizontal />
+                    {/* <CartItem item={productsInCart[2]} horizontal />
+                    <CartItem item={productsInCart[3]} horizontal /> */}
 
                     {/* <Block flex row>
                         <Card item={productsInCart[1]} style={{ marginRight: theme.SIZES.BASE }} />
@@ -48,7 +48,7 @@ class ShoppingCart extends React.Component {
                     <Card item={productsInCart[4]} full /> */}
 
                     <Text size={24} bold >
-                        TOTAL POINTS: 10
+                        TOTAL POINTS: 11
                         {"\n"}
                     </Text>
 

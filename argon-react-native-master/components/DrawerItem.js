@@ -64,6 +64,15 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : argonTheme.COLORS.WARNING}
           />
         );
+        case "My Points":
+          return (
+            <Icon
+              name="diamond"
+              family="ArgonExtra"
+              size={12}
+              color={focused ? "white" : argonTheme.COLORS.WARNING}
+            />
+          );
       case "Getting Started":
         return <Icon />;
       case "Log out":
