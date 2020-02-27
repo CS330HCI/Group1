@@ -29,20 +29,20 @@ class Card extends React.Component {
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Itempage')}>
           {/* Change pro to food information page */}
           <Block flex style={imgContainer}>
             <Image source={item.image} style={imageStyles} />
           </Block>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Itempage')}>
           {/* Change pro to food information page */}
           <Block flex space="between" style={styles.cardDescription}>
             <Text size={14} style={styles.cardTitle}>{item.name}</Text>
             <Text size={12} style={styles.cardDescription}> Carbon Footprint: {item.footprint}</Text>
             <Text size={12} style={styles.cardDescription}> Points: {item.points}</Text>
             <Button round size="small" style={{ width: 40, height: 40, alignSelf: 'flex-end'}}
-                    onPress={() => {handleCart(item);
+                    onPress={() => {handleCart(item); navigation.navigate('ShoppingCart');
                     // navigation.navigate('Pro');
                   }}> 
                     {/* Change pro to cart page */}
