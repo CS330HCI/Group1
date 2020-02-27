@@ -53,7 +53,13 @@ export default [
         footprint:30,
         points:-10,
         image: require("../data/images/09.jpg"),
-        alternatives: ["salmon"]
+        nutrition: {
+            unit: "4 ounces",
+            calories: 185,
+            fat: "5.5g",
+            protien:"31.7g"
+        },
+        alternatives: ["Salmon"]
     },
     {
         name:"Salmon",
@@ -61,6 +67,12 @@ export default [
         footprint:30,
         points:5,
         image: require("../data/images/10.jpg"),
+        nutrition: {
+            unit: "4 ounces",
+            calories: 223.75,
+            fat: "9.5g",
+            protien:"32.5g"
+        },
         alternatives: ["Steak"]
     }
   ];
