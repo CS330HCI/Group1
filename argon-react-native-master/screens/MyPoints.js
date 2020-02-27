@@ -5,7 +5,8 @@ import {
   ScrollView,
   Image,
   ImageBackground,
-  Platform
+  Platform,
+  AsyncStorage
 } from "react-native";
 import { Block, Text, theme } from "galio-framework";
 
@@ -17,7 +18,26 @@ const { width, height } = Dimensions.get("screen");
 const thumbMeasure = (width - 48 - 32) / 3;
 
 class MyPoints extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        totalPoints: '',
+    }
+  }
+  getTotalPoints = async () => {
+    let userId = '';
+    try {
+      userId = await AsyncStorage.getItem('totalPoints') || 'none';
+    } catch (error) {
+      // Error retrieving data
+      console.log(error.message);
+    }
+    this.setState({totalPoints: userId})
+    return userId;
+  }
+
   render() {
+    this.getTotalPoints();
     return (
       <Block flex style={styles.profile}>
         <Block flex>
@@ -54,7 +74,7 @@ class MyPoints extends React.Component {
                       Your Points
                     </Text>
                     <Text bold size={28} color="#32325D" style={{ marginTop: 10 }}>
-                      11
+                      {this.state.totalPoints}
                     </Text>
                   </Block>
                   <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
