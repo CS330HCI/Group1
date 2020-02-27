@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Image, AsyncStorage } from 'react-native';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import { Block, GalioProvider } from 'galio-framework';
@@ -17,6 +17,20 @@ const assetImages = [
   Images.iOSLogo,
   Images.androidLogo
 ];
+
+// AsyncStorage.setItem('totalPoints', "0");
+
+const totalPoints = '0';
+const initTotalPoints = async totalPoints => {
+  try {
+    await AsyncStorage.setItem('totalPoints', totalPoints);
+  } catch (error) {
+    // Error retrieving data
+    console.log(error.message);
+  }
+};
+
+initTotalPoints(totalPoints);
 
 // cache product images
 articles.map(article => assetImages.push(article.image));

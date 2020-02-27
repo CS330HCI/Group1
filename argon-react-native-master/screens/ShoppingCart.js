@@ -3,7 +3,6 @@ import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { Button, sSelect, Icon, Input, Header, Switch } from "../components/";
 import { Block, Text, theme } from "galio-framework";
 import { argonTheme, tabs } from "../constants/";
-
 import { Card, CartItem } from '../components';
 import productsInCart from '../constants/productsInCart';
 import food_products from '../data/food_products';
@@ -16,10 +15,27 @@ class ShoppingCart extends React.Component {
         super(props);
         this.removeFromCart = this.removeFromCart.bind(this)
         this.state = {
+            globalTotalPoints: '',
             totalPoints: 0,
             cartItem: [food_products[6], food_products[7]]
         }
       }
+
+    updatePoints = async() => {
+        try {
+            let points = '';
+            points = await AsyncStorage.getItem('totalPoints') || 'none';
+            var totalPoints = 0
+            this.state.cartItem.map((f) => 
+                totalPoints += f.points)
+
+            const newGlobalPoints = Number(points) + totalPoints;
+            await AsyncStorage.setItem('totalPoints', newGlobalPoints.toString());
+        } catch (error) {
+            // Error retrieving data
+            console.log(error.message);
+        }
+    };
     
     removeFromCart(item){
         var index = this.state.cartItem.indexOf(item);
@@ -92,7 +108,8 @@ class ShoppingCart extends React.Component {
 
                     {this.renderTotalPoints()}
 
-                    <Button center color="warning" style={styles.optionsButton}>
+                    <Button center color="warning" style={styles.optionsButton}
+                            onPress={() => {this.updatePoints(); navigation.navigate('MyPoints')}}>
                         SAVE POINTS 
                     </Button>
                     <Text>{"\n"}</Text>
