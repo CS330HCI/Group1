@@ -43,6 +43,7 @@ class Itempage extends React.Component {
                     <Text>{"\n"}</Text>
                     <Text onPress={this.handleClick} bold>{"Alternatives"} </Text>
                     <AltCard handleClick={this.handleClick.bind(this)} item={this.state.subitem} horizontal />
+                    <AltCard handleClick={this.handleClick.bind(this)} item={food_products[8]} horizontal />
                 </Block>
 
             </ScrollView>
