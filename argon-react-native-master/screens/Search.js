@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions, ScrollView } from 'react-native';
 import { Block, theme } from 'galio-framework';
 import food_products from '../data/food_products';
 import { Card, Input, Icon } from '../components';
-const { width } = Dimensions.get('screen');
+const { width, height } = Dimensions.get('screen');
 
 class Search extends React.Component {
   constructor(props) {
@@ -109,6 +109,9 @@ class Search extends React.Component {
 const styles = StyleSheet.create({
   home: {
     width: width,    
+  },
+  search: {
+    height: height * 0.1,
   },
   articles: {
     width: width - theme.SIZES.BASE * 2,
