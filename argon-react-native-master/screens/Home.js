@@ -78,13 +78,13 @@ class Onboarding extends React.Component {
             <Block center>
               {/* change 'search' into corresponding page */}
               <Button style={styles.button} color='warning'
-              onPress={() => navigation.navigate('Search')}>
+              onPress={() => navigation.navigate('MyPoints')}>
                 MY POINTS
               </Button>
             </Block>
             <Block center>
               <Button style={styles.button} color='info'
-              onPress={() => navigation.navigate('Search')}>
+              onPress={() => navigation.navigate('ShoppingCart')}>
                 MY SHOPPING LIST
               </Button>
             </Block>

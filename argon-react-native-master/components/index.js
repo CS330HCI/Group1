@@ -7,6 +7,8 @@ import Input from './Input';
 import Switch from './Switch';
 import Select from './Select';
 import CartItem from './CartItem'
+import MainItem from './MainItem'
+import AltCard from './AltCard'
 
 export {
   Button,
@@ -17,5 +19,7 @@ export {
   Header,
   Switch, 
   Select,
-  CartItem
+  CartItem,
+  MainItem,
+  AltCard
 };

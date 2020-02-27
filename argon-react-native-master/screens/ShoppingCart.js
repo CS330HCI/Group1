@@ -11,7 +11,7 @@ const { width } = Dimensions.get('screen');
 class ShoppingCart extends React.Component {
     constructor(props) {
         super(props);
-        this.handleCart = this.handleCart.bind(this)
+        // this.handleCart = this.handleCart.bind(this)
         this.totalPoints = 0
       }
 
