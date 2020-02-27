@@ -35,11 +35,12 @@ class ShoppingCart extends React.Component {
     }
 
     renderTotalPoints = () => {
+        var totalPoints = 0
         this.state.cartItem.map((f) => 
-            this.state.totalPoints += f.points)
+            totalPoints += f.points)
         return (
             <Text size={24} bold >
-                TOTAL POINTS: {this.state.totalPoints}
+                TOTAL POINTS: {totalPoints}
                 {"\n"}
             </Text>)
 
