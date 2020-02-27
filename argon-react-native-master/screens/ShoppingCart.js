@@ -4,38 +4,66 @@ import { Button, sSelect, Icon, Input, Header, Switch } from "../components/";
 import { Block, Text, theme } from "galio-framework";
 import { argonTheme, tabs } from "../constants/";
 
-import { CartItem } from '../components';
+import { Card, CartItem } from '../components';
 import productsInCart from '../constants/productsInCart';
+import food_products from '../data/food_products';
 const { width } = Dimensions.get('screen');
+import {AsyncStorage} from 'react-native';
+
 
 class ShoppingCart extends React.Component {
     constructor(props) {
         super(props);
-        this.handleCart = this.handleCart.bind(this)
-        this.totalPoints = 0
+        this.removeFromCart = this.removeFromCart.bind(this)
+        this.state = {
+            totalPoints: 0,
+            cartItem: [food_products[6], food_products[7]]
+        }
       }
-
-  renderFood = () => {
-    const { state } = this.props;
-    if (state === undefined) {
-      return (null)
+    
+    removeFromCart(item){
+        var index = this.state.cartItem.indexOf(item);
+        var items = this.state.cartItem;
+        if (index !== -1) items.splice(index, 1);
+        this.setState({cartItem: items});
+        console.log(this.state.cartItem);
     }
-    if (Object.keys(state.displayed_list).length > 0) {
-      return (
+
+    clearCartContents = () => {
+        this.setState({cartItem: []})
+        this.setState({totalPoints: 0})
+    }
+
+    renderTotalPoints = () => {
+        this.state.cartItem.map((f) => 
+            this.state.totalPoints += f.points)
+        return (
+            <Text size={24} bold >
+                TOTAL POINTS: {this.state.totalPoints}
+                {"\n"}
+            </Text>)
+
+    }
+    renderFood = () => {
+    if (Object.keys(this.state.cartItem).length > 0) {
+        return (
         <ScrollView
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.articles}>
-          <Block flex>
-            {state.displayed_list.map((f) => 
-            <Card item={f} horizontal/>)}
-          </Block>
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.articles}>
+            <Block flex>
+            {this.state.cartItem.map((f) => 
+            <CartItem item={f} horizontal removeFromCart={this.removeFromCart.bind(this)}/>)}
+            </Block>
         </ScrollView>
-      )
+        )
     }
     else {
-      return (null)
+        return (<Text size={24} bold >
+            Your cart is empty
+            {"\n"}
+        </Text>)
     }
-  }
+    }
 
     renderArticles = () => {
         const { navigation } = this.props;
@@ -60,30 +88,16 @@ class ShoppingCart extends React.Component {
                     <Block flex>
                         {this.renderFood()}
                     </Block>
-          
-                    <CartItem item={productsInCart[0]} horizontal />
-                    <CartItem item={productsInCart[1]} horizontal />
-                    {/* <CartItem item={productsInCart[2]} horizontal />
-                    <CartItem item={productsInCart[3]} horizontal /> */}
 
-                    {/* <Block flex row>
-                        <Card item={productsInCart[1]} style={{ marginRight: theme.SIZES.BASE }} />
-                        <Card item={productsInCart[2]} />
-                    </Block>
-                    <Card item={productsInCart[3]} horizontal />
-                    <Card item={productsInCart[4]} full /> */}
-
-                    <Text size={24} bold >
-                        TOTAL POINTS: 11
-                        {"\n"}
-                    </Text>
+                    {this.renderTotalPoints()}
 
                     <Button center color="warning" style={styles.optionsButton}>
                         SAVE POINTS 
                     </Button>
                     <Text>{"\n"}</Text>
-                    <Button center color="warning" style={styles.optionsButton}>
-                        CLEAR CONTENT
+                    <Button center color="warning" style={styles.optionsButton}
+                            onPress={() => this.clearCartContents()}>
+                        CLEAR CART
                     </Button>
 
                 </Block>
@@ -92,6 +106,7 @@ class ShoppingCart extends React.Component {
         )
     }
     render() {
+        console.log(this.state.cartItem)
         return (
             <Block flex center style={styles.home}>
                 {this.renderArticles()}
