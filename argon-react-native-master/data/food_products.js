@@ -59,12 +59,12 @@ export default [
             fat: "5.5g",
             protien:"31.7g"
         },
-        alternatives: ["Salmon"]
+        alternatives: ["Salmon", "Chicken"]
     },
     {
         name:"Salmon",
         category:"meat",
-        footprint:30,
+        footprint:20,
         points:5,
         image: require("../data/images/10.jpg"),
         nutrition: {
@@ -73,6 +73,14 @@ export default [
             fat: "9.5g",
             protien:"32.5g"
         },
-        alternatives: ["Steak"]
+        alternatives: ["Steak", "Chicken"]
+    },
+    {
+        name:"Chicken",
+        category:"meat",
+        footprint:18,
+        points:4,
+        image: require("../data/images/11.jpg"),
+        alternatives: ["Steak", "Salmon"]
     }
   ];

@@ -2,14 +2,14 @@ import React from 'react';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback } from 'react-native';
-import { Block, Text, theme } from 'galio-framework';
+import { Block, Text, theme, Button } from 'galio-framework';
 
 import { argonTheme } from '../constants';
 
 
 class CartItem extends React.Component {
   render() {
-    const { navigation, item, horizontal, full, style, ctaColor, imageStyle } = this.props;
+    const { navigation, item, horizontal, full, style, ctaColor, imageStyle, removeFromCart } = this.props;
     
     const imageStyles = [
       full ? styles.fullImage : styles.horizontalImage,
@@ -30,8 +30,16 @@ class CartItem extends React.Component {
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
           <Block flex space="between" style={styles.cardDescription}>
-            <Text size={14} style={styles.cardTitle} center>{item.title}</Text>
-            <Text size={18} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold center>{item.cta}</Text>
+            <Text size={14} style={styles.cardTitle} center>{item.name}</Text>
+            <Text size={18} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold center>Points: {item.points}</Text>
+            <Button round size="small" 
+                    color='warning'
+                    style={{ width: 30, height: 30, alignSelf: 'flex-end'}}
+                    onPress={() => {removeFromCart(item);}}
+                  > 
+                    {/* Change pro to cart page */}
+              -
+            </Button>
           </Block>
         </TouchableWithoutFeedback>
       </Block>
@@ -51,6 +59,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: theme.COLORS.WHITE,
     marginVertical: theme.SIZES.BASE,
+    borderColor: theme.COLORS.RED,
     borderWidth: 0,
     minHeight: 114,
     marginBottom: 16
