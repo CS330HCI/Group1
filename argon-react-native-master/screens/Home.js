@@ -114,8 +114,9 @@ const styles = StyleSheet.create({
     height: theme.SIZES.BASE * 3,
     shadowRadius: 0,
     shadowOpacity: 0,
-    paddingVertical: theme.SIZES.BASE * 2,
-    margin: 15
+    // paddingVertical: theme.SIZES.BASE * 2,
+    margin: 15,
+    
   },
   logo: {
     width: 200,
