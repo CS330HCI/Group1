@@ -18,7 +18,10 @@ class Search extends React.Component {
   }
 
   handleCart(item) {
-    this.setState({cart: {...this.state.cart, item}})
+    console.log(this.state.cart)
+    console.log(item)
+    this.setState({cart: item})
+    
   }
 
   renderFood = () => {

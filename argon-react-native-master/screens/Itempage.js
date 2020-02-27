@@ -1,16 +1,36 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { TouchableWithoutFeedback,StyleSheet, Dimensions, ScrollView, View } from 'react-native';
 import { Button, sSelect, Icon, Input, Header, Switch } from "../components/";
 import { Block, Text, theme } from "galio-framework";
 import { argonTheme, tabs } from "../constants/";
 import {Image} from 'react-native';
-import { CartItem } from '../components';
+import { CartItem, MainItem, AltCard } from '../components';
 import productsInCart from '../constants/productsInCart';
+import food_products from '../data/food_products';
 const { width } = Dimensions.get('screen');
 
 class Itempage extends React.Component {
-    renderArticles = () => {
+    constructor(props) {
+        super(props);
+        this.state = {
+          mainitem: food_products[7],
+          subitem: food_products[6]
+        }
+        this.handleClick = this.handleClick.bind(this)
+      }
+    handleClick = () => {
+        if (this.state.mainitem == food_products[7]) {
+            this.setState({mainitem: food_products[6], subitem: food_products[7]})
+        }
+        else {
+            this.setState({mainitem: food_products[7], subitem: food_products[6]})
+        }
+        console.log('aaaaaa')
+        
+    }
+    render() {
         return (
+            <Block flex center style={styles.home}>
             <ScrollView
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={styles.articles}>
@@ -19,34 +39,16 @@ class Itempage extends React.Component {
                         <Text>{"\n"}</Text>
                     </Block>             
                     
-                    <Image source={require("../data/images/01.jpg")} />
-
-                    <Button small center color="warning" style={styles.optionsButton}>
-                            ADD
-                    </Button>
+                    <MainItem item={this.state.mainitem} horizontal />
                     <Text>{"\n"}</Text>
-                    <Text>{"Alternatives"} </Text>
-                    <Text>{"\n"}</Text>
-                    <CartItem item={productsInCart[0]} horizontal />
-                    <CartItem item={productsInCart[1]} horizontal />
-                    <CartItem item={productsInCart[2]} horizontal />
-                    <CartItem item={productsInCart[3]} horizontal />
-
+                    <Text onPress={this.handleClick} bold>{"Alternatives"} </Text>
+                    <AltCard handleClick={this.handleClick.bind(this)} item={this.state.subitem} horizontal />
                 </Block>
 
             </ScrollView>
+            </Block>
         )
     }
-
-
-    render() {
-        return (
-            <Block flex center style={styles.home}>
-                {this.renderArticles()}
-            </Block>
-        );
-    }
-
 }
 
 const styles = StyleSheet.create({
