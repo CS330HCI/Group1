@@ -4,11 +4,14 @@ import { Block, theme } from 'galio-framework';
 import food_products from '../data/food_products';
 import { Card, Input, Icon } from '../components';
 const { width, height } = Dimensions.get('screen');
+import {AsyncStorage} from 'react-native';
 
 class Search extends React.Component {
   constructor(props) {
     super(props);
-    this.handleCart = this.handleCart.bind(this)
+    this.handleCart = this.handleCart.bind(this);
+    this.renderFoodInCart = this.renderFoodInCart.bind(this);
+    // this.addToChart = this.addToChart.bind(this);
     this.state = {
       input: '',
       full_list: food_products,
@@ -17,11 +20,53 @@ class Search extends React.Component {
     }
   }
 
-  handleCart(item) {
-    console.log(this.state.cart)
-    console.log(item)
+  addToChart = async(newItem, navigation) => {
+    try {
+        console.log("new item:  ")
+        console.log(newItem)        
+        let items = '';
+        items = await AsyncStorage.getItem('cartItems') || 'none';
+        
+        //append new item to the cart
+        items = items.concat('@');
+        items = items.concat(newItem);
+        await AsyncStorage.setItem('cartItems', items);
+        console.log(await AsyncStorage.getItem('cartItems') || 'none');
+        navigation.navigate('ShoppingCart');
+    } catch (error) {
+        // Error retrieving data
+        console.log(error.message);
+    }
+  };
+
+  renderFoodInCart() {
+    if (Object.keys(this.state.cart).length > 0) {
+      return (
+      <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.articles}>
+          <Block flex>
+          {console.log("in render food: ", this.state.cartItem)}
+          {this.state.cart.map((f) => 
+              <CartItem item={f} horizontal removeFromCart={this.removeFromCart.bind(this)}/>
+          )}
+          </Block>
+      </ScrollView>
+      )
+    }
+    else {
+        return (<Text size={24} bold >
+            Your cart is empty
+            {"\n"}
+        </Text>)
+    }
+  }
+
+  handleCart(item, navigation) {
+    // console.log(this.state.cart)
+    // console.log(item)
     this.setState({cart: item})
-    
+    this.addToChart(item.name, navigation);
   }
 
   renderFood = () => {
@@ -117,6 +162,7 @@ const styles = StyleSheet.create({
     width: width - theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE,
   },
+  
 });
 
 export default Search;
