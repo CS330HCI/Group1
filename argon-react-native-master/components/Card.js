@@ -2,10 +2,11 @@ import React from 'react';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback, BackHandler } from 'react-native';
-import { Block, Text, theme, Button } from 'galio-framework';
+import { Block, Text, theme } from 'galio-framework';
 import { argonTheme } from '../constants';
-
-
+import { Ionicons } from '@expo/vector-icons';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Card extends React.Component {
   constructor(props) {
@@ -41,11 +42,27 @@ class Card extends React.Component {
             <Text size={14} style={styles.cardTitle}>{item.name}</Text>
             <Text size={12} style={styles.cardDescription}> Carbon Footprint: {item.footprint}</Text>
             <Text size={12} style={styles.cardDescription}> Points: {item.points}</Text>
-            <Button round size="small" style={{ width: 40, height: 40, alignSelf: 'flex-end'}}
+            {/* <Button size="large" icon="shopping-basket" iconFamily="FontAwesome" iconSize={30} iconColor="#fff" style={{ width: 100, height: 40, alignSelf: 'flex-end'}}
                     onPress={() => {handleCart(item, navigation);}}> 
-                    {/* Change pro to cart page */}
-              +
+              ADD
             </Button>
+            <Button onlyIcon icon="shopping-basket" iconFamily="FontAwesome" iconSize={30} color="warning" iconColor="#fff" style={{ width: 40, height: 40 }}>warning</Button> */}
+            <Button
+              icon={
+                <Icon
+                  name="shopping-basket"
+                  size={12}
+                  color="white"
+                />
+              }
+              titleStyle={{
+                color: "white",
+                fontSize: 14,
+              }}
+              style={{ width: 80, height: 40, fontSize:10, alignSelf: 'flex-end'}}
+              onPress={() => {handleCart(item, navigation);}}
+              title=" ADD"
+            />
           </Block>
         </TouchableWithoutFeedback>
       </Block>

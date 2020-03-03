@@ -2,9 +2,10 @@ import React from 'react';
 import { withNavigation } from 'react-navigation';
 import PropTypes from 'prop-types';
 import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback, BackHandler } from 'react-native';
-import { Block, Text, theme, Button } from 'galio-framework';
+import { Block, Text, theme } from 'galio-framework';
 import { argonTheme } from '../constants';
-
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 class MainItem extends React.Component {
@@ -44,11 +45,27 @@ class MainItem extends React.Component {
             <Text size={12} style={styles.nutrition_content}> Calories: {item.nutrition.calories}</Text>
             <Text size={12} style={styles.nutrition_content}> Fat: {item.nutrition.fat}</Text>
             <Text size={12} style={styles.nutrition_content}> Protein: {item.nutrition.protien}</Text>
-            <Button round size="small" style={{ width: 40, height: 40, alignSelf: 'flex-end'}}
+            {/* <Button round size="small" style={{ width: 40, height: 40, alignSelf: 'flex-end'}}
                     onPress={() => {navigation.navigate('ShoppingCart');
                   }}> 
               +
-            </Button>
+            </Button> */}
+            <Button
+              icon={
+                <Icon
+                  name="shopping-basket"
+                  size={12}
+                  color="white"
+                />
+              }
+              titleStyle={{
+                color: "white",
+                fontSize: 14,
+              }}
+              style={{ width: 80, height: 40, fontSize:10, alignSelf: 'flex-end'}}
+              onPress={() => {handleCart(item, navigation);}}
+              title=" ADD"
+            />
           </Block>
         </TouchableWithoutFeedback>
       </Block>
