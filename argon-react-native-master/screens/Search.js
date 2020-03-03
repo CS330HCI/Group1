@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions, ScrollView } from 'react-native';
+import { StyleSheet, Dimensions, ScrollView, Text } from 'react-native';
 import { Block, theme } from 'galio-framework';
 import food_products from '../data/food_products';
 import { Card, Input, Icon } from '../components';
@@ -16,6 +16,7 @@ class Search extends React.Component {
       input: '',
       full_list: food_products,
       displayed_list: {},
+      top_picks: [food_products[6], food_products[5]],
       cart: {},
     }
   }
@@ -71,7 +72,17 @@ class Search extends React.Component {
 
   renderFood = () => {
     if (this.state.input === '') {
-      return (null)
+      return (
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.articles}>
+          <Block flex>
+            <Text style={{color: 'purple', fontWeight: 'bold', fontSize:22}}>Top picks of the week</Text>
+            {this.state.top_picks.map((f) => 
+            <Card item={f} horizontal handleCart={this.handleCart.bind(this)}/>)}
+          </Block>
+        </ScrollView>
+      )
     }
     if (Object.keys(this.state.displayed_list).length > 0) {
       return (
