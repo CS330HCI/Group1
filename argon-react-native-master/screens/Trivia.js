@@ -23,20 +23,20 @@ class Trivia extends React.Component {
     handleImage1() {
         this.setState({show: true})
         if (this.state.mainitem.footprint1 > this.state.mainitem.footprint2) {
-            this.setState({correct: false})
+            this.setState({correct: false, score:this.state.score-1})
         }
         else {
-            this.setState({correct: true})
+            this.setState({correct: true, score: this.state.score+1})
         }
     }
 
     handleImage2() {
         this.setState({show: true})
         if (this.state.mainitem.footprint2 > this.state.mainitem.footprint1) {
-            this.setState({correct: false})
+            this.setState({correct: false, score: this.state.score-1})
         }
         else {
-            this.setState({correct: true})
+            this.setState({correct: true , score:this.state.score+1})
         }
     }
 
@@ -50,11 +50,11 @@ class Trivia extends React.Component {
             }
             this.setState({remaining: new_arr})
             let random = Math.floor(Math.random() * Math.floor(Object.keys(this.state.remaining).length-1))
-            this.setState({mainitem: this.state.remaining[random], score: this.state.score+1})
+            this.setState({mainitem: this.state.remaining[random]})
         }
         else {
             let random = Math.floor(Math.random() * Math.floor(Object.keys(this.state.remaining).length-1))
-            this.setState({mainitem: this.state.remaining[random], score:this.state.score-1})
+            this.setState({mainitem: this.state.remaining[random]})
         }
     }
 
