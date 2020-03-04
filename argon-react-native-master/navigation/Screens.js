@@ -93,7 +93,7 @@ const ShoppingCartStack = createStackNavigator({
 });
 
 const MyPointsStack = createStackNavigator({
-  ShoppingCart: {
+  MyPoints: {
     screen: MyPoints,
     navigationOptions: ({ navigation }) => ({
       header: <Header title="My Points" navigation={navigation} />
