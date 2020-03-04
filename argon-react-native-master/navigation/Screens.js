@@ -10,16 +10,11 @@ import { Block } from "galio-framework";
 
 // screens
 import Search from "../screens/Search";
-import Home from "../screens/Home";
 import Pro from "../screens/Pro";
-import Profile from "../screens/Profile";
-import Register from "../screens/Register";
-import Elements from "../screens/Elements";
-import Articles from "../screens/Articles";
-
 import ShoppingCart from "../screens/ShoppingCart";
 import Itempage from "../screens/Itempage";
 import MyPoints from "../screens/MyPoints";
+import Trivia from "../screens/Trivia";
 // drawer
 import Menu from "./Menu";
 import DrawerItem from "../components/DrawerItem";
@@ -65,20 +60,6 @@ const transitionConfig = (transitionProps, prevTransitionProps) => ({
   }
 });
 
-const ElementsStack = createStackNavigator({
-  Elements: {
-    screen: Elements,
-    navigationOptions: ({ navigation }) => ({
-      header: <Header title="Elements" navigation={navigation} />
-    })
-  }
-},{
-  cardStyle: {
-    backgroundColor: "#F8F9FE"
-  },
-  transitionConfig
-});
-
 const ItempageStack = createStackNavigator({
   Itempage:{
     screen:Itempage,
@@ -86,21 +67,15 @@ const ItempageStack = createStackNavigator({
       header:<Header title="Item Page" navigation={navigation} />
     })
   }
-
 });
 
-const ArticlesStack = createStackNavigator({
-  Articles: {
-    screen: Articles,
-    navigationOptions: ({ navigation }) => ({
-      header: <Header title="Articles" navigation={navigation} />
+const TriviaStack = createStackNavigator({
+  Trivia:{
+    screen: Trivia,
+    navigationOptions:({navigation}) => ({
+      header:<Header title="Daily Trivia" navigation={navigation} />
     })
   }
-},{
-  cardStyle: {
-    backgroundColor: "#F8F9FE"
-  },
-  transitionConfig
 });
 
 const ShoppingCartStack = createStackNavigator({
@@ -118,7 +93,7 @@ const ShoppingCartStack = createStackNavigator({
 });
 
 const MyPointsStack = createStackNavigator({
-  ShoppingCart: {
+  MyPoints: {
     screen: MyPoints,
     navigationOptions: ({ navigation }) => ({
       header: <Header title="My Points" navigation={navigation} />
@@ -130,24 +105,6 @@ const MyPointsStack = createStackNavigator({
   },
   transitionConfig
 });
-
-const ProfileStack = createStackNavigator(
-  {
-    Profile: {
-      screen: Profile,
-      navigationOptions: ({ navigation }) => ({
-        header: (
-          <Header white transparent title="Profile" iconColor={'#FFF'} navigation={navigation} />
-        ),
-        headerTransparent: true
-      })
-    }
-  },
-  {
-    cardStyle: { backgroundColor: "#FFFFFF" },
-    transitionConfig
-  }
-);
 
 const SearchStack = createStackNavigator(
   {
@@ -177,12 +134,6 @@ const SearchStack = createStackNavigator(
 // divideru se baga ca si cum ar fi un ecrna dar nu-i nimic duh
 const AppStack = createDrawerNavigator(
   {
-    Home: {
-      screen: Home,
-      navigationOptions: {
-        drawerLabel: () => {}
-      }
-    },
     Search: {
       screen: SearchStack,
       navigationOptions: navOpt => ({
@@ -214,7 +165,15 @@ const AppStack = createDrawerNavigator(
           <DrawerItem focused={focused} screen="My Points" title="My Points" />
         )
       })
-    }
+    },
+    Trivia: {
+      screen: TriviaStack,
+      navigationOptions: navOpt => ({
+        drawerLabel: ({ focused }) => (
+          <DrawerItem focused={focused} screen="Trivia" title="Daily Trivia" />
+        )
+      })
+    },
   },
   Menu
 );

@@ -28,33 +28,6 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : argonTheme.COLORS.ERROR}
           />
         );
-      case "Articles":
-        return (
-          <Icon
-            name="spaceship"
-            family="ArgonExtra"
-            size={12}
-            color={focused ? "white" : argonTheme.COLORS.PRIMARY}
-          />
-        );
-      case "Profile":
-        return (
-          <Icon
-            name="chart-pie-35"
-            family="ArgonExtra"
-            size={12}
-            color={focused ? "white" : argonTheme.COLORS.WARNING}
-          />
-        );
-      case "Account":
-        return (
-          <Icon
-            name="calendar-date"
-            family="ArgonExtra"
-            size={12}
-            color={focused ? "white" : argonTheme.COLORS.INFO}
-          />
-        );
       case "Shopping Cart":
         return (
           <Icon
@@ -70,13 +43,18 @@ class DrawerItem extends React.Component {
               name="diamond"
               family="ArgonExtra"
               size={12}
-              color={focused ? "white" : argonTheme.COLORS.WARNING}
+              color={focused ? "white" : argonTheme.COLORS.INFO}
             />
           );
-      case "Getting Started":
-        return <Icon />;
-      case "Log out":
-        return <Icon />;
+        case "Daily Trivia":
+          return (
+            <Icon
+              name="g-check"
+              family="ArgonExtra"
+              size={12}
+              color={focused ? "white" : argonTheme.COLORS.SUCCESS}
+            />
+          );
       default:
         return null;
     }
