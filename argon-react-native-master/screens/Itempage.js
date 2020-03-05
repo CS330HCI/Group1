@@ -16,11 +16,12 @@ class Itempage extends React.Component {
           mainitem: food_products[7],
           subitem: [food_products[6], food_products[8]],
           cart: {},
-          flag: 0,
+          render: 1,
         }
         this.handleClick = this.handleClick.bind(this)
       }
-
+    
+    
     handleClick(item) {
         console.log("In handle click");
         console.log(item)
@@ -67,6 +68,38 @@ class Itempage extends React.Component {
         }
       }
 
+    getFlag = async() => {
+        try {
+            var flag = await AsyncStorage.getItem('flag') || 'none';
+
+            if (flag === '0'){
+                this.getMainItem();
+                this.setFlag();            
+            }
+            this.setState({render: 1})
+            return (null)
+        } catch (error) {
+            // Error retrieving data
+            console.log(error.message);
+            return (null)
+        }
+    }
+
+    setFlag = async() => {
+        try {
+            await AsyncStorage.setItem('flag', '1');
+        } catch (error) {
+            // Error retrieving data
+            console.log(error.message);
+        }
+    }
+
+    forceRender (){
+        if (this.state.render === 1){
+            this.forceUpdate();
+            this.setState({render: 0})
+        }
+    }
 
     addToChart = async(newItem, navigation) => {
         try {
@@ -79,7 +112,7 @@ class Itempage extends React.Component {
             items = items.concat('@');
             items = items.concat(newItem);
             await AsyncStorage.setItem('cartItems', items);
-            console.log(await AsyncStorage.getItem('cartItems') || 'none');
+            // console.log(await AsyncStorage.getItem('cartItems') || 'none');
             navigation.navigate('ShoppingCart');
         } catch (error) {
             // Error retrieving data
@@ -91,12 +124,10 @@ class Itempage extends React.Component {
         this.setState({cart: item})
         this.addToChart(item.name, navigation);
     }
-
+    
     render() {
-        if (this.state.flag === 0){
-            this.getMainItem();
-            this.setState({flag: 1});            
-        }
+        // console.log("In item page")
+        this.getFlag();
         return (
             <Block flex center style={styles.home}>
             <ScrollView

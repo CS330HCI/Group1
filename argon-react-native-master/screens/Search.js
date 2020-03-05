@@ -72,7 +72,8 @@ class Search extends React.Component {
     try {
         console.log("new item:  ")
         console.log(item.name)        
-        await AsyncStorage.setItem('currentItem', item.name);
+        await AsyncStorage.setItem('currentItem', item.name); 
+        await AsyncStorage.setItem('flag', '0');
     } catch (error) {
         // Error retrieving data
         console.log(error.message);
