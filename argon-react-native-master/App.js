@@ -25,6 +25,7 @@ const initTotalPoints = async totalPoints => {
   try {
     await AsyncStorage.setItem('totalPoints', totalPoints);
     await AsyncStorage.setItem('cartItems', '');
+    await AsyncStorage.setItem('currentItem', '');
   } catch (error) {
     // Error retrieving data
     console.log(error.message);

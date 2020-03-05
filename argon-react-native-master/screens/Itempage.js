@@ -2,10 +2,8 @@ import React from 'react';
 import { TouchableWithoutFeedback,StyleSheet, Dimensions, ScrollView, View } from 'react-native';
 import { Button, sSelect, Icon, Input, Header, Switch } from "../components/";
 import { Block, Text, theme } from "galio-framework";
-import { argonTheme, tabs } from "../constants/";
 import {Image} from 'react-native';
 import { CartItem, MainItem, AltCard } from '../components';
-import productsInCart from '../constants/productsInCart';
 import food_products from '../data/food_products';
 const { width } = Dimensions.get('screen');
 import {AsyncStorage} from 'react-native';
@@ -16,20 +14,59 @@ class Itempage extends React.Component {
         this.handleCart = this.handleCart.bind(this);
         this.state = {
           mainitem: food_products[7],
-          subitem: food_products[6],
+          subitem: [food_products[6], food_products[8]],
           cart: {},
+          flag: 0,
         }
         this.handleClick = this.handleClick.bind(this)
       }
 
-    handleClick = () => {
-        if (this.state.mainitem == food_products[7]) {
-            this.setState({mainitem: food_products[6], subitem: food_products[7]})
+    handleClick(item) {
+        console.log("In handle click");
+        console.log(item)
+        // if (this.state.mainitem == food_products[7]) {
+        //     this.setState({mainitem: food_products[6], subitem: food_products[7]})
+        // }
+        // else {
+        //     this.setState({mainitem: food_products[7], subitem: food_products[6]})
+        // }        
+        this.setState({mainitem: item})
+
+        var currItemIndex = this.getFoodIndex(item.name);
+        var alternatives = [];
+        for (i in food_products[currItemIndex].alternatives){
+            const altIdx = this.getFoodIndex(food_products[currItemIndex].alternatives[i])
+            alternatives.push(food_products[altIdx])
         }
-        else {
-            this.setState({mainitem: food_products[7], subitem: food_products[6]})
-        }        
+        this.setState({subitem: alternatives})
+        console.log("end of handle click.")
     }
+
+    getFoodIndex(name) {
+        food = ["Ground Beef", "Ground Turkey", "Ground Plant-based Protein", "White Buns", "Whole Wheat Buns", "Whole Grains Buns", "Steak", "Salmon", "Chicken", "Dark Chocolate", "Milk Chocolate", "Eggs", "Cheese", "Tofu", "Shrimp", "Coffee", "Beer", "Potatoes", "Rice"];
+        return food.indexOf(name);
+    }
+
+    getMainItem = async() => {
+        try {
+            var item = await AsyncStorage.getItem('currentItem') || 'none';
+            var currItemIndex = this.getFoodIndex(item);
+            
+            this.setState({mainitem: food_products[currItemIndex]})
+            
+            var alternatives = [];
+            for (i in food_products[currItemIndex].alternatives){
+                const altIdx = this.getFoodIndex(food_products[currItemIndex].alternatives[i])
+                alternatives.push(food_products[altIdx])
+            }
+            this.setState({subitem: alternatives})
+            
+        } catch (error) {
+          // Error retrieving data
+          console.log(error.message);
+        }
+      }
+
 
     addToChart = async(newItem, navigation) => {
         try {
@@ -56,6 +93,10 @@ class Itempage extends React.Component {
     }
 
     render() {
+        if (this.state.flag === 0){
+            this.getMainItem();
+            this.setState({flag: 1});            
+        }
         return (
             <Block flex center style={styles.home}>
             <ScrollView
@@ -68,9 +109,9 @@ class Itempage extends React.Component {
                     
                     <MainItem item={this.state.mainitem} handleCart={this.handleCart.bind(this)} horizontal />
                     <Text>{"\n"}</Text>
-                    <Text onPress={this.handleClick} bold>{"Alternatives"} </Text>
-                    <AltCard handleClick={this.handleClick.bind(this)} handleCart={this.handleCart.bind(this)} item={this.state.subitem} horizontal />
-                    <AltCard handleClick={this.handleClick.bind(this)} handleCart={this.handleCart.bind(this)} item={food_products[8]} horizontal />
+                    <Text bold>{"Alternatives"} </Text>
+                    {this.state.subitem.map((f) => 
+                        <AltCard handleClick={this.handleClick.bind(this)} handleCart={this.handleCart.bind(this)} item={f} horizontal />)}
                 </Block>
 
             </ScrollView>

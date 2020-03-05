@@ -11,12 +11,12 @@ class Search extends React.Component {
     super(props);
     this.handleCart = this.handleCart.bind(this);
     this.renderFoodInCart = this.renderFoodInCart.bind(this);
-    // this.addToChart = this.addToChart.bind(this);
+    this.handleCardClick = this.handleCardClick.bind(this);
     this.state = {
       input: '',
       full_list: food_products,
       displayed_list: {},
-      top_picks: [food_products[6], food_products[5]],
+      top_picks: [food_products[18], food_products[10], food_products[7]],
       cart: {},
     }
   }
@@ -64,11 +64,20 @@ class Search extends React.Component {
   }
 
   handleCart(item, navigation) {
-    // console.log(this.state.cart)
-    // console.log(item)
     this.setState({cart: item})
     this.addToChart(item.name, navigation);
   }
+
+  handleCardClick = async(item) => {
+    try {
+        console.log("new item:  ")
+        console.log(item.name)        
+        await AsyncStorage.setItem('currentItem', item.name);
+    } catch (error) {
+        // Error retrieving data
+        console.log(error.message);
+    }
+  };
 
   renderFood = () => {
     if (this.state.input === '') {
@@ -79,7 +88,7 @@ class Search extends React.Component {
           <Block flex>
             <Text style={{color: 'purple', fontWeight: 'bold', fontSize:22}}>Top picks of the week</Text>
             {this.state.top_picks.map((f) => 
-            <Card item={f} horizontal handleCart={this.handleCart.bind(this)}/>)}
+            <Card item={f} horizontal handleCart={this.handleCart.bind(this)} handleCardClick={this.handleCardClick.bind(this)}/>)}
           </Block>
         </ScrollView>
       )
@@ -91,7 +100,7 @@ class Search extends React.Component {
           contentContainerStyle={styles.articles}>
           <Block flex>
             {this.state.displayed_list.map((f) => 
-            <Card item={f} horizontal handleCart={this.handleCart.bind(this)}/>)}
+            <Card item={f} horizontal handleCart={this.handleCart.bind(this)} handleCardClick={this.handleCardClick.bind(this)}/>)}
           </Block>
         </ScrollView>
       )

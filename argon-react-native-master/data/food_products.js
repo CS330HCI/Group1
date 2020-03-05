@@ -5,6 +5,12 @@ export default [
         footprint:100,
         points:-10,
         image: require("../data/images/01.jpg"),
+        nutrition: {
+            unit: "4 ounces",
+            calories: 285,
+            fat: "6.5g",
+            protien:"31.7g"
+        },
         alternatives: ["Ground Plant-based Protein", "Ground Turkey"]
     },
     {
@@ -13,6 +19,12 @@ export default [
         category:"meat",
         points:-5,
         image: require("../data/images/02.jpg"),
+        nutrition: {
+            unit: "4 ounces",
+            calories: 267,
+            fat: "8.0g",
+            protien:"26.0g"
+        },
         alternatives: ["Ground Plant-based Protein", "Ground Beef"]
     },
     {
@@ -21,6 +33,12 @@ export default [
         category:"meat",
         points:10,
         image: require("../data/images/03.jpg"),
+        nutrition: {
+            unit: "4 ounces",
+            calories: 220,
+            fat: "2.5g",
+            protien:"25.0g"
+        },
         alternatives: ["Ground Turkey", "Ground Beef"]
     },
     {
@@ -29,6 +47,11 @@ export default [
         footprint:12,
         points:-2,
         image: require("../data/images/04.jpg"),
+        nutrition: {
+            unit: "1 set",
+            calories: 140,
+            fat: "1.5g",
+        },
         alternatives: ["Whole Wheat Buns", "Whole Grains Buns"]
     },
     {
@@ -37,6 +60,11 @@ export default [
         footprint:8,
         points:3,
         image: require("../data/images/05.jpg"),
+        nutrition: {
+            unit: "1 set",
+            calories: 160,
+            fat: "2.5g",
+        },
         alternatives: ["Whole Grains Buns", "White Buns"]
     },
     {
@@ -45,6 +73,11 @@ export default [
         footprint:10,
         points:1,
         image: require("../data/images/06.jpg"),
+        nutrition: {
+            unit: "1 set",
+            calories: 165,
+            fat: "2.5g",
+        },
         alternatives: ["Whole Wheat Buns", "White Buns"]
     },
     {
@@ -93,7 +126,7 @@ export default [
         name:"Dark Chocolate",
         category:"Sweets",
         footprint:19,
-        points:0,
+        points:4,
         image: require("../data/images/23.jpg"),
         nutrition: {
             unit: "1 ounce",
