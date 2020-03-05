@@ -23,7 +23,7 @@ class ShoppingCart extends React.Component {
       }
     
     getFoodIndex(name) {
-        food = ["Ground Beef", "Ground Turkey", "Ground Plant-based Protein", "White Buns", "Whole Wheat Buns", "Whole Grains Buns", "Steak", "Salmon", "Chicken"];
+        food = ["Ground Beef", "Ground Turkey", "Ground Plant-based Protein", "White Buns", "Whole Wheat Buns", "Whole Grains Buns", "Steak", "Salmon", "Chicken", "Dark Chocolate", "Milk Chocolate", "Eggs", "Cheese", "Tofu", "Shrimp", "Coffee", "Beer", "Potatoes", "Rice"];
         return food.indexOf(name);
     }
 
@@ -66,13 +66,6 @@ class ShoppingCart extends React.Component {
             console.log(error.message);
         }
     };
-
-    // removeFromCart(item){
-    //     var index = this.state.cartItem.indexOf(item);
-    //     var items = this.state.cartItem;
-    //     if (index !== -1) items.splice(index, 1);
-    //     this.setState({cartItem: items});
-    // }
 
     clearCartContents = async(item) => {
         try {

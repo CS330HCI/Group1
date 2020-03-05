@@ -16,7 +16,7 @@ class Card extends React.Component {
     }
   }
   render() {
-    const { navigation, item, horizontal, style, handleCart } = this.props;
+    const { navigation, item, horizontal, style, handleCart, handleCardClick } = this.props;
     const imageStyles = [
       {flex: 1,
       width: undefined, 
@@ -30,13 +30,13 @@ class Card extends React.Component {
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Itempage')}>
+        <TouchableWithoutFeedback onPress={() => {handleCardClick(item); navigation.navigate('Itempage')}}>
           {/* Change pro to food information page */}
           <Block flex style={imgContainer}>
             <Image source={item.image} style={imageStyles} />
           </Block>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Itempage')}>
+        <TouchableWithoutFeedback onPress={() => {handleCardClick(item); navigation.navigate('Itempage')}}>
           {/* Change pro to food information page */}
           <Block flex space="between" style={styles.cardDescription}>
             <Text size={14} style={styles.cardTitle}>{item.name}</Text>

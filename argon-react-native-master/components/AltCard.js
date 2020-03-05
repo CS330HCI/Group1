@@ -30,13 +30,13 @@ class AltCard extends React.Component {
 
     return (
       <Block row={horizontal} card flex style={cardContainer}>
-        <TouchableWithoutFeedback onPress={() => {handleClick()}}>
+        <TouchableWithoutFeedback onPress={() => {handleClick(item)}}>
           {/* Change pro to food information page */}
           <Block flex style={imgContainer}>
             <Image source={item.image} style={imageStyles} />
           </Block>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => {handleClick()}}>
+        <TouchableWithoutFeedback onPress={() => {handleClick(item)}}>
           {/* Change pro to food information page */}
           <Block flex space="between" style={styles.cardDescription}>
             <Text size={14} style={styles.cardTitle}>{item.name}</Text>
