@@ -64,7 +64,7 @@ const ItempageStack = createStackNavigator({
   Itempage:{
     screen:Itempage,
     navigationOptions:({navigation}) => ({
-      header:<Header title="Item Page" navigation={navigation} />
+      header:<Header title="Item Page" navigation={navigation}  />
     })
   }
 });
