@@ -13,8 +13,7 @@ For this task we implemented a **Home Page**, where users can select which compo
 
 We also implemented a **Search Page**, where users can search food by name (e.g. beef) or category (e.g. meat) to look up how much carbon footprint the food has. Each food card displays its picture, name, carbon footprint, points given if selected for purchase, and an add to cart button. Clicking the add to cart button will add the food item into the cart and navigate the users to the shopping cart component. For the first task, Robert wants to learn more about the ingredients for a burger. He would go to the search page of our app and search for buns and ground meat. Below are screenshots of the options he gets from our app. 
 
-<img src="readme_img/search_buns.jpeg" width="200" height="350">
-<img src="readme_img/search_ground_meat.jpeg" width="200" height="350">
+<img src="readme_img/search_buns.jpeg" width="200" height="350"> | <img src="readme_img/search_ground_meat.jpeg" width="200" height="350">
 
 Lastly we implemented a **Shopping Cart**, where users can navigate to the shopping cart through the introduction page or the app sidebar when they swipe left to right. The shopping cart displays all the products that the user selected through searches, along with the points associated with each product in the cart. A point total is calculated at the end of the cart. Users can choose to add more items to the cart, record the point total of the products in the cart, or empty the cart. 
 ![Homepage](readme_img/task1_cart.jpeg)
