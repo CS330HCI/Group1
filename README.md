@@ -9,6 +9,7 @@ Robert is an undergraduate student at Northwestern. He wants to have a burger fo
 
 For this task we implemented a **Home Page**, where users can select which component they want to navigate to easily after launching the app. Without having to open the sidebar, the users can quickly choose which component of the app they want to access. The home page will have four buttons: search, my points, my shopping list, and my daily trivia. Clicking each button will navigate the users to the corresponding components. 
 ![Homepage](readme_img/homepage.jpeg)
+<img src="readme_img/homepage.jpeg" width="100" height="100">
 
 We also implemented a **Search Page**, where users can search food by name (e.g. beef) or category (e.g. meat) to look up how much carbon footprint the food has. Each food card displays its picture, name, carbon footprint, points given if selected for purchase, and an add to cart button. Clicking the add to cart button will add the food item into the cart and navigate the users to the shopping cart component. For the first task, Robert wants to learn more about the ingredients for a burger. He would go to the search page of our app and search for buns and ground meat. Below are screenshots of the options he gets from our app. 
 ![Homepage](readme_img/search_buns.jpeg)
