@@ -1,4 +1,4 @@
-# Techo 
+# Teco 
 
 
 ## High-Fidelity Prototyping
