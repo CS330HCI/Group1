@@ -1,7 +1,7 @@
 # Teco 
 
 ## Paper Prototyping
-
+<img src="readme_img/Picture1.jpeg" width="200" height="350"><img src="readme_img/Picture2.jpeg" width="200" height="350"><img src="readme_img/Picture3.jpeg" width="200" height="350"><img src="readme_img/Picture4.jpeg" width="200" height="350"><img src="readme_img/Picture5.jpeg" width="200" height="350"><img src="readme_img/Picture6.jpeg" width="200" height="350"><img src="readme_img/Picture7.jpeg" width="200" height="350"><img src="readme_img/Picture8.jpeg" width="200" height="350"><img src="readme_img/Picture9.jpeg" width="200" height="350"><img src="readme_img/Picture10.jpeg" width="200" height="350"><img src="readme_img/Picture11.jpeg" width="200" height="350"><img src="readme_img/Picture12.jpeg" width="200" height="350">
 ### Screenshots
 
 #### Summary
