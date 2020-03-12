@@ -9,7 +9,6 @@ import {
   AsyncStorage,
   View
 } from "react-native";
-import { BarChart,LineChart, Grid } from 'react-native-svg-charts'
 import { Block, Text, theme } from "galio-framework";
 import { Button } from "../components";
 import { Images, argonTheme } from "../constants";
@@ -76,49 +75,18 @@ class MyPoints extends React.Component {
                     <Text bold size={28} color="#32325D" style={{ marginTop: 10 }}>
                       {this.state.totalPoints}
                     </Text>
-
-                    <LineChart
-                        style={{ height: 200, zIndex:100 }}
-                        data={ data }
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
-                        contentInset={{ top: 40, bottom: 40 }}
-                    >
-                        <Grid/>
-                    </LineChart>
                   </Block>
                   
                   <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
                     <Block style={styles.divider} />
                   </Block>
-                  <Block middle>
-                    {/* <Button
-                      color="transparent"
-                      textStyle={{
-                        color: "#233DD2",
-                        fontWeight: "500",
-                        fontSize: 16
-                      }}
-                    >
-                      Show more
-                    </Button> */}
-                    <BarChart
-                        style={{ height: 200, zIndex:100 }}
-                        data={ data }
-                        svg={{ fill }}
-                        contentInset={{ top: 30, bottom: 30 }}
-                    >
-                      <Grid/>
-                    </BarChart>
-                    <View>
-                    <LineChart
-                        style={{ height: 200, zIndex:100 }}
-                        data={ data }
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
-                        contentInset={{ top: 20, bottom: 20 }}
-                    >
-                        <Grid/>
-                    </LineChart>
-                    </View>
+                  <Block middle style={styles.nameInfo}>
+                    <Text size={20}>
+                      10 points = Saving 1 Tree
+                    </Text>
+                    <Text size={20}>
+                      You saved {Math.round(10*this.state.totalPoints/10)/10} trees!
+                    </Text>
                   </Block>
                   <Block
                     row
