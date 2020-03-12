@@ -2,7 +2,7 @@
 
 ## Paper Prototyping
 
-### How was our concept received by testers?
+### Screenshots
 
 #### Summary
 Overall, our concept was received generally well by testers, with a few usability problems. The main upside to our concept was that the major parts of our app were intuitive to use. For example, the trivia game was intuitive enough for the user to complete the task. Also, users intuitively understood that the higher the point is for a food item, the better the item is to the environment.
