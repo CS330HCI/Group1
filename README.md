@@ -1,5 +1,20 @@
 # Teco 
 
+## Paper Prototyping
+
+### How was our concept received by testers?
+
+#### Summary
+Overall, our concept was received generally well by testers, with a few usability problems. The main upside to our concept was that the major parts of our app were intuitive to use. For example, the trivia game was intuitive enough for the user to complete the task. Also, users intuitively understood that the higher the point is for a food item, the better the item is to the environment.
+
+#### Usability Problems
+The first usability problem that we encountered was that users did not understand they were supposed to search for food items on the home page. This was due to a lack of visibility on the home page; the home page did not help users understand what features are available, what the current state of the system is, and their current navigational system. The lack of visibility most likely made the app unintuitive for users.
+
+Another usability problem that we discovered was that the sidebar icon was not conspicuous enough for users to click on it. As a result, one of our users was not able to find the trivia section of the app. Again, this was an issue with visibility; it was not clear what features are available to access from the home page.
+
+#### What We Learned and What We Did
+Based on what we learned from our testers, we decided to add a welcome page that would make the functionality of our app clear. The welcome page had a “Search” button, a “My Points” button, a “My Shopping List” button, and a “Trivia” button. Ultimately, we chose to remove the welcome page and revert to the sidebar implementation after further feedback and development. 
+
 
 ## High-Fidelity Prototyping
 
