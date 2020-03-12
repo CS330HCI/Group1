@@ -1,7 +1,18 @@
 # Teco 
 
 ## Paper Prototyping
-<img src="readme_img/Picture3.jpg" width="200" height="350"><img src="readme_img/Picture6.jpg" width="200" height="350"><img src="readme_img/Picture5.jpg" width="200" height="350"><img src="readme_img/Picture4.jpg" width="200" height="350"><img src="readme_img/Picture1.jpg" width="200" height="350"><img src="readme_img/Picture2.jpg" width="200" height="350"><img src="readme_img/Picture7.jpg" width="200" height="350"><img src="readme_img/Picture8.jpg" width="200" height="350"><img src="readme_img/Picture9.jpg" width="200" height="350"><img src="readme_img/Picture10.jpg" width="200" height="350"><img src="readme_img/Picture11.jpg" width="200" height="350"><img src="readme_img/Picture12.jpg" width="200" height="350">
+<img src="readme_img/Picture3.jpg" width="200" height="350">
+<img src="readme_img/Picture6.jpg" width="200" height="350">
+<img src="readme_img/Picture5.jpg" width="200" height="350">
+<img src="readme_img/Picture11.jpg" width="200" height="350">
+<img src="readme_img/Picture12.jpg" width="200" height="350">
+<img src="readme_img/Picture2.jpg" width="200" height="350">
+<img src="readme_img/Picture7.jpg" width="200" height="350">
+<img src="readme_img/Picture8.jpg" width="200" height="350">
+<img src="readme_img/Picture9.jpg" width="200" height="350">
+<img src="readme_img/Picture10.jpg" width="200" height="350">
+<img src="readme_img/Picture4.jpg" width="200" height="350">
+<img src="readme_img/Picture1.jpg" width="200" height="350">
 ### Screenshots
 
 #### Summary
