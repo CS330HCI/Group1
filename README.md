@@ -101,10 +101,9 @@ The next steps for the application if more time was allowed will be to add more 
 
 ## Links (TO DO)
 
-A link to your team’s repository
-https://github.com/CS330HCI/Group1
+[Link])(https://github.com/CS330HCI/Group1) to our team's Github repository
+[Link](https://drive.google.com/open?id=1qpgAHLAk530UY_Ehy229sWd_4fxLMdKT) to video of our final prototype
 
-A link to a working version of your prototype (or a video of it)
 
 ### How to view the application
 To view our application, please follow the following steps to install expo on your laptop. Once the expo server is started, the app can be viewed on your mobile device. 
