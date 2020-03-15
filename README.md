@@ -98,6 +98,10 @@ For the final round of prototype we incorporated suggestions received from the l
 
 <img src="images/WechatIMG139.jpeg" width="200" height="350">
 
+### Three components
+
+We incorporated the concept of gamification in the design of the Trivia page. Users will learn more about the carbon footprint of specific products by playing the trivia game. When they get a question right, they get a positive reward and when they get the question wrong, they get a negative reward. The reward is expressed in terms of the number of points shown on the screen. 
+
 ## Reflection
 
 With the time we had we were able to implement the Search Page, Shopping Cart, Item Page, Trivia, and My Points. We also initially implemented the Home Page, but it was removed during the design process as we considered the feedback and the design principles as we continued development. The core features necessary to carry out the tasks we aimed to accomplish with our paper prototypes were all implemented so that our computer prototype can satisfy all tasks and scenarios we came up with. All the intended interactions for existing pages/components were implemented successfully. After the implementation for task 3, we added one more feature based on our observation and user testing. We enhanced the My Points to have additional gamification aspect. My Points was not necessary to complete our tasks, but we found that additional changes to this page can make it more attractive for users. My Points exhibits not only the aggregate points gained by from all the various shopping carts the user created, but it also exhibits how the points the user collected translates to trees saved. With the design principles in mind, we complemented the text with a tree image to let users have a closer feeling of satisfaction as they review how many points they have collected so far.
