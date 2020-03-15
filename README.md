@@ -91,16 +91,15 @@ James is a new user who likes to play games and wants to learn more about the ca
 #### Implementation
 For task 3 we implemented a new component called **Trivia**. Users can play a trivia game and test their knowledge of the environmental impact of common foods. Users are presented with two food pictures and asked “Which one [food] is better for the environment?”. Users select the food that they think is correct; if they are correct, they get a “correct” prompt, and if they are incorrect, they get an “incorrect” prompt. Users are also shown the carbon footprints of the respective foods in the prior round. Users can select the “next round” button to proceed to the next round. This satisfies the Gamification component requirement.
 
+We incorporated the concept of gamification in the design of the Trivia page. Users will learn more about the carbon footprint of specific products by playing the trivia game. When they get a question right, they get a positive reward and when they get the question wrong, they get a negative reward. The reward is expressed in terms of the number of points shown on the screen. 
+
+
 <img src="readme_img/trivia.jpeg" width="200" height="350">   <img src="readme_img/trivia_correct.jpeg" width="200" height="350">   <img src="readme_img/trivia_wrong.jpeg" width="200" height="350">
 
 ### Final Improvement
 For the final round of prototype we incorporated suggestions received from the last in-class demo session and modified the My Points page of our application. As shown in the image below, we now added an analogy of 40 points equals saving one tree to keep the users motivated to select eco-friendly products and to continue to use our application. We also removed some excessive white space on the page to make the page look more clean. 
 
 <img src="images/WechatIMG139.jpeg" width="200" height="350">
-
-### Three components
-
-We incorporated the concept of gamification in the design of the Trivia page. Users will learn more about the carbon footprint of specific products by playing the trivia game. When they get a question right, they get a positive reward and when they get the question wrong, they get a negative reward. The reward is expressed in terms of the number of points shown on the screen. 
 
 ## Reflection
 
