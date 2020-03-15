@@ -93,14 +93,6 @@ For task 3 we implemented a new component called **Trivia**. Users can play a tr
 
 <img src="readme_img/trivia.jpeg" width="200" height="350">   <img src="readme_img/trivia_correct.jpeg" width="200" height="350">   <img src="readme_img/trivia_wrong.jpeg" width="200" height="350">
 
-
-## Reflection
-
-For task 3 we implemented a new component called **Trivia**. Users can play a trivia game and test their knowledge of the environmental impact of common foods. Users are presented with two food pictures and asked “Which one [food] is better for the environment?”. Users select the food that they think is correct; if they are correct, they get a “correct” prompt, and if they are incorrect, they get an “incorrect” prompt. Users are also shown the carbon footprints of the respective foods in the prior round. Users can select the “next round” button to proceed to the next round. This satisfies the Gamification component requirement.
-
-<img src="readme_img/trivia.jpeg" width="200" height="350">   <img src="readme_img/trivia_correct.jpeg" width="200" height="350">   <img src="readme_img/trivia_wrong.jpeg" width="200" height="350">
-
-
 ## Reflection
 
 With the time we had we were able to implement the Search Page, Shopping Cart, Item Page and the Trivia. We also initially implemented the Home Page, but it was removed during the design process as we took into account the feedback and the design principles as we continued development. The core features necessary to carry out the tasks we aimed to accomplish with our paper prototypes were all implemented so that our computer prototype can satisfy all tasks and scenarios we came up with. All the intended interactions for existing pages/components were implemented successfully. 
