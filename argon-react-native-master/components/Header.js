@@ -48,6 +48,7 @@ const SearchButton = ({isWhite, style, navigation}) => (
 class Header extends React.Component {
   handleLeftPress = () => {
     const { back, navigation } = this.props;
+    console.log('click')
     return (back ? navigation.goBack() : navigation.openDrawer());
   }
   // renderRight = () => {

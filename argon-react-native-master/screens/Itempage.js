@@ -50,7 +50,7 @@ class Itempage extends React.Component {
 
     getMainItem = async() => {
         try {
-            var item = await AsyncStorage.getItem('currentItem') || 'none';
+            var item = await AsyncStorage.getItem('currentItem') || food_products[7].name;
             var currItemIndex = this.getFoodIndex(item);
             
             this.setState({mainitem: food_products[currItemIndex]})

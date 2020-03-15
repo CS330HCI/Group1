@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   StyleSheet,
   Dimensions,
@@ -7,14 +7,13 @@ import {
   ImageBackground,
   Platform,
   AsyncStorage,
-  View
+  View,
+  Button
 } from "react-native";
-import { BarChart,LineChart, Grid } from 'react-native-svg-charts'
 import { Block, Text, theme } from "galio-framework";
-import { Button } from "../components";
 import { Images, argonTheme } from "../constants";
 import { HeaderHeight } from "../constants/utils";
-
+import tree from '../data/tree';
 
 const { width, height } = Dimensions.get("screen");
 
@@ -25,8 +24,10 @@ class MyPoints extends React.Component {
     super(props);
     this.state = {
         totalPoints: '',
+        cur_tree: tree[4].image,
     }
   }
+
   getTotalPoints = async () => {
     let userId = '';
     try {
@@ -36,14 +37,40 @@ class MyPoints extends React.Component {
       console.log(error.message);
     }
     this.setState({totalPoints: userId})
+    
     return userId;
+  }
+
+  handleScore = () => {
+    if (Math.floor(this.state.totalPoints/40) > 0) {
+      return Math.floor(this.state.totalPoints/40)
+      
+    }
+    else {
+      return this.state.totalPoints;
+    }
+  }
+
+  handleTree = (temp_score) => {    
+    if (temp_score >= 0 && temp_score < 10) {
+      this.setState({cur_tree: tree[0].image})
+    }
+    else if (temp_score >= 10 && temp_score < 20) {
+      this.setState({cur_tree: tree[1].image})
+    }
+    else if (temp_score >= 20 && temp_score < 30) {
+      this.setState({cur_tree: tree[2].image})
+    }
+    else if (temp_score >= 30 && temp_score < 40) {
+      this.setState({cur_tree: tree[3].image})
+    }
+
+    return 0
   }
 
   render() {
     this.getTotalPoints();
-    const fill = 'rgb(134, 65, 244)'
-    const data   = [ 50, 10, 40, 95, -4, -24, null, 85, undefined, 0, 35, 53, -53, 24, 50, -20, -80 ]
- 
+
     return (
       <Block flex style={styles.profile}>
         <Block flex>
@@ -76,49 +103,31 @@ class MyPoints extends React.Component {
                     <Text bold size={28} color="#32325D" style={{ marginTop: 10 }}>
                       {this.state.totalPoints}
                     </Text>
-
-                    <LineChart
-                        style={{ height: 200, zIndex:100 }}
-                        data={ data }
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
-                        contentInset={{ top: 40, bottom: 40 }}
-                    >
-                        <Grid/>
-                    </LineChart>
                   </Block>
                   
                   <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
                     <Block style={styles.divider} />
                   </Block>
-                  <Block middle>
-                    {/* <Button
-                      color="transparent"
-                      textStyle={{
-                        color: "#233DD2",
-                        fontWeight: "500",
-                        fontSize: 16
-                      }}
-                    >
-                      Show more
-                    </Button> */}
-                    <BarChart
-                        style={{ height: 200, zIndex:100 }}
-                        data={ data }
-                        svg={{ fill }}
-                        contentInset={{ top: 30, bottom: 30 }}
-                    >
-                      <Grid/>
-                    </BarChart>
-                    <View>
-                    <LineChart
-                        style={{ height: 200, zIndex:100 }}
-                        data={ data }
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
-                        contentInset={{ top: 20, bottom: 20 }}
-                    >
-                        <Grid/>
-                    </LineChart>
-                    </View>
+                  <Block middle style={styles.nameInfo}>
+                    <Text size={16} style={{margin: '3%'}}>
+                      40 points = Saving a Tree!
+                    </Text>
+                    <Block style={{width: 150, height: 150, justifyContent: 'center', alignItems: 'center', margin: '5%'}}>
+                      <Image source={this.state.cur_tree}/>
+                    </Block>
+                      <Text size={20}>
+                        You saved {Math.floor(this.state.totalPoints/40)} trees!
+                    </Text>
+                    {/* {this.state.show ?       
+                      <React.Fragment>
+                        <Block style={{width: 150, height: 150, justifyContent: 'center', alignItems: 'center'}}>
+                          <Image source={this.state.cur_tree}/>
+                        </Block>
+                          <Text size={20}>
+                            You saved {Math.floor(this.state.totalPoints/40)} trees!
+                        </Text>
+                      </React.Fragment> : 
+                      <Button style={{width: '50%'}} onPress={() => {this.handleTree();this.setState({show: true});}} title={"Check Your Tree"}/>} */}
                   </Block>
                   <Block
                     row
