@@ -103,7 +103,19 @@ With the time we had we were able to implement the Search Page, Shopping Cart, I
 
 A link to your team’s repository
 A link to a working version of your prototype (or a video of it)
-Instructions for running your app (including how your prototype is best viewed).
+
+### How to view the application
+To view our application, please follow the following steps to install expo on your laptop. Once the expo server is started, the app can be viewed on your mobile device. 
+- pull from our github repository
+- make sure to have nodejs10 LTS installed on your laptop
+- run "npm install -g expo-cli" in terminal
+- in your terminal go to Group1/argon-react-native-master
+- within that directory run "npm install"
+- run "npm install --save react-native-gesture-handler react-native-reanimated react-native-screens"
+- run "npm start" or “expo start”
+- make sure to have the Expo Client application installed on your phone
+- use the camera app on your phone to scan the QR code shown on your terminal
+- You should be able to see our app on your phone
 
 
 
