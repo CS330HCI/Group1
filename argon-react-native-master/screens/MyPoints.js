@@ -24,11 +24,10 @@ class MyPoints extends React.Component {
     super(props);
     this.state = {
         totalPoints: '',
-        cur_tree: tree[0].image,
-        show: false,
+        cur_tree: tree[4].image,
     }
   }
-  
+
   getTotalPoints = async () => {
     let userId = '';
     try {
@@ -38,16 +37,21 @@ class MyPoints extends React.Component {
       console.log(error.message);
     }
     this.setState({totalPoints: userId})
+    
     return userId;
   }
 
-  handleTree = () => {
-    var temp_score = Math.floor(this.state.totalPoints/40);
-    
-    if (temp_score > 0) {
-      temp_score = this.state.totalPoints - temp_score*40;
+  handleScore = () => {
+    if (Math.floor(this.state.totalPoints/40) > 0) {
+      return Math.floor(this.state.totalPoints/40)
+      
     }
+    else {
+      return this.state.totalPoints;
+    }
+  }
 
+  handleTree = (temp_score) => {    
     if (temp_score >= 0 && temp_score < 10) {
       this.setState({cur_tree: tree[0].image})
     }
@@ -60,7 +64,8 @@ class MyPoints extends React.Component {
     else if (temp_score >= 30 && temp_score < 40) {
       this.setState({cur_tree: tree[3].image})
     }
-    console.log(temp_score)
+
+    return 0
   }
 
   render() {
@@ -104,10 +109,10 @@ class MyPoints extends React.Component {
                     <Block style={styles.divider} />
                   </Block>
                   <Block middle style={styles.nameInfo}>
-                    <Text size={20} style={{margin: '3%'}}>
-                      10 points = Growing your tree!
+                    <Text size={16} style={{margin: '3%'}}>
+                      40 points = Saving a Tree!
                     </Text>
-                    <Block style={{width: 150, height: 150, justifyContent: 'center', alignItems: 'center'}}>
+                    <Block style={{width: 150, height: 150, justifyContent: 'center', alignItems: 'center', margin: '5%'}}>
                       <Image source={this.state.cur_tree}/>
                     </Block>
                       <Text size={20}>
