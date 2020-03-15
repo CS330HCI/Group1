@@ -96,7 +96,7 @@ For task 3 we implemented a new component called **Trivia**. Users can play a tr
 ### Final Improvement
 For the final round of prototype we incorporated suggestions received from the last in-class demo session and modified the My Points page of our application. As shown in the image below, we now added an analogy of 40 points equals saving one tree to keep the users motivated to select eco-friendly products and to continue to use our application. We also removed some excessive white space on the page to make the page look more clean. 
 
-<img src="readme_img/trivia.jpeg" width="200" height="350">
+<img src="readme_img/WechatIMG139.jpeg" width="200" height="350">
 
 ## Reflection
 
