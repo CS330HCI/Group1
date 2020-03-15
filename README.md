@@ -61,7 +61,7 @@ For this task we implemented a **Home Page**, where users can select which compo
 
 <img src="readme_img/homepage.jpeg" width="200" height="350">
 
-We also implemented a **Search Page**, where users can search food by name (e.g. beef) or category (e.g. meat) to look up how much carbon footprint the food has. Each food card displays its picture, name, carbon footprint, points given if selected for purchase, and an add to cart button. Clicking the add to cart button will add the food item into the cart and navigate the users to the shopping cart component. For the first task, Robert wants to learn more about the ingredients for a burger. He would go to the search page of our app and search for buns and ground meat. Below are screenshots of the options he gets from our app. 
+We also implemented a **Search Page**, where users can search food by name (e.g. beef) or category (e.g. meat) to look up how much carbon footprint the food has. This is our interactive data filter component that filters our food data based on the search term inputted by the user. Each food card displays its picture, name, carbon footprint, points given if selected for purchase, and an add to cart button. Clicking the add to cart button will add the food item into the cart and navigate the users to the shopping cart component. For the first task, Robert wants to learn more about the ingredients for a burger. He would go to the search page of our app and search for buns and ground meat. Below are screenshots of the options he gets from our app. 
 
 <img src="readme_img/search_buns.jpeg" width="200" height="350">   <img src="readme_img/search_ground_meat.jpeg" width="200" height="350">
 
