@@ -110,7 +110,7 @@ We can also improve the gamification aspect of My Points that was implemented af
 
 Other than the gamification aspect, we can construct our own API and database with more food data. Existing databases we found were insufficient to meet our needs. Therefore, we will have to use a combination of existing API's to pull some information and supplement them with our own research. Though this may not seem scalable, if we can identify websites with good quality of food data with carbon footprint information, the process can be accelerated through web scraping. All the potential features mentioned above will need multiple user testing as user interface and user experience are critical for our app's user compliance.
 
-## Links (TO DO)
+## Links
 
 [Link](https://github.com/CS330HCI/Group1) to our team's Github repository
 
