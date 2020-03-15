@@ -96,12 +96,22 @@ For task 3 we implemented a new component called **Trivia**. Users can play a tr
 
 ## Reflection
 
-With the time we had we were able to implement the Search Page, Shopping Cart, Item Page and the Trivia. We also initially implemented the Home Page, but it was removed during the design process as we took into account the feedback and the design principles as we continued development. The core features necessary to carry out the tasks we aimed to accomplish with our paper prototypes were all implemented so that our computer prototype can satisfy all 
+For task 3 we implemented a new component called **Trivia**. Users can play a trivia game and test their knowledge of the environmental impact of common foods. Users are presented with two food pictures and asked “Which one [food] is better for the environment?”. Users select the food that they think is correct; if they are correct, they get a “correct” prompt, and if they are incorrect, they get an “incorrect” prompt. Users are also shown the carbon footprints of the respective foods in the prior round. Users can select the “next round” button to proceed to the next round. This satisfies the Gamification component requirement.
 
+<img src="readme_img/trivia.jpeg" width="200" height="350">   <img src="readme_img/trivia_correct.jpeg" width="200" height="350">   <img src="readme_img/trivia_wrong.jpeg" width="200" height="350">
+
+
+## Reflection
+
+With the time we had we were able to implement the Search Page, Shopping Cart, Item Page and the Trivia. We also initially implemented the Home Page, but it was removed during the design process as we took into account the feedback and the design principles as we continued development. The core features necessary to carry out the tasks we aimed to accomplish with our paper prototypes were all implemented so that our computer prototype can satisfy all tasks and scenarios we came up with. All the intended interactions for existing pages/components were implemented successfully. 
+
+The next steps for the application if more time was allowed will be to add more gamification aspects to the app. We currently do have a point system that shows users how much they saved through their purchasing decisions. Furthermore, we have our trivia feature that allows them to play a simple quiz game to learn about sustainability. However, it will be helpful to add a competitive aspect in this app. We can build a community feature first with authentication (sign-in) so that we can store data for individual users. Once that is complete, we can have a new page with a leaderboard component. This component would display ranked points of all users using our app. We can base the ranked lists based on location or other factors such as similar diet. This feature can be enhanced by elaborating on the authentication component. With sign-in built in, we can create another page that allows users to add "friends". Through this component, the competitive leaderboard feature can be further personlized for each user by letting them compete with friends. This will make the gamification aspect of our app stronger and also increase user compliance. In order to make change with this app, consistent usage from users are required. Therefore, any features that will help users visit this app more often will be significant. Other than the gamification aspect, we can construct our own API and database with more food data. Existing databases we found were insufficient to meet our needs. Therefore, we will have to use a combination of existing API's to pull some information and supplement them with our own research. Though this may not seem scalable, if we can identify websites with good quality of food data with carbon footprint information, the process can be accelerated through web scraping. All the potential features mentioned above will need multiple user testings as user interface and user experience are critical for our app's user compliance.
 
 ## Links (TO DO)
 
 A link to your team’s repository
+https://github.com/CS330HCI/Group1
+
 A link to a working version of your prototype (or a video of it)
 
 ### How to view the application
