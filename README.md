@@ -61,7 +61,7 @@ For this task we implemented a **Home Page**, where users can select which compo
 
 <img src="readme_img/homepage.jpeg" width="200" height="350">
 
-We also implemented a **Search Page**, where users can search food by name (e.g. beef) or category (e.g. meat) to look up how much carbon footprint the food has. Each food card displays its picture, name, carbon footprint, points given if selected for purchase, and an add to cart button. Clicking the add to cart button will add the food item into the cart and navigate the users to the shopping cart component. For the first task, Robert wants to learn more about the ingredients for a burger. He would go to the search page of our app and search for buns and ground meat. Below are screenshots of the options he gets from our app. 
+We also implemented a **Search Page**, where users can search food by name (e.g. beef) or category (e.g. meat) to look up how much carbon footprint the food has. This is our interactive data filter component that filters our food data based on the search term inputted by the user. Each food card displays its picture, name, carbon footprint, points given if selected for purchase, and an add to cart button. Clicking the add to cart button will add the food item into the cart and navigate the users to the shopping cart component. For the first task, Robert wants to learn more about the ingredients for a burger. He would go to the search page of our app and search for buns and ground meat. Below are screenshots of the options he gets from our app. 
 
 <img src="readme_img/search_buns.jpeg" width="200" height="350">   <img src="readme_img/search_ground_meat.jpeg" width="200" height="350">
 
@@ -90,6 +90,9 @@ James is a new user who likes to play games and wants to learn more about the ca
 
 #### Implementation
 For task 3 we implemented a new component called **Trivia**. Users can play a trivia game and test their knowledge of the environmental impact of common foods. Users are presented with two food pictures and asked “Which one [food] is better for the environment?”. Users select the food that they think is correct; if they are correct, they get a “correct” prompt, and if they are incorrect, they get an “incorrect” prompt. Users are also shown the carbon footprints of the respective foods in the prior round. Users can select the “next round” button to proceed to the next round. This satisfies the Gamification component requirement.
+
+We incorporated the concept of gamification in the design of the Trivia page. Users will learn more about the carbon footprint of specific products by playing the trivia game. When they get a question right, they get a positive reward and when they get the question wrong, they get a negative reward. The reward is expressed in terms of the number of points shown on the screen. 
+
 
 <img src="readme_img/trivia.jpeg" width="200" height="350">   <img src="readme_img/trivia_correct.jpeg" width="200" height="350">   <img src="readme_img/trivia_wrong.jpeg" width="200" height="350">
 
